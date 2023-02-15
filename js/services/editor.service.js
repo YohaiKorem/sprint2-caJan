@@ -28,7 +28,7 @@ function _createMeme(id){
             strokeColor: 'black',
             fillColor: 'white',
             font:'impact',
-            x: 100,
+            x: 50,
             y: 50
          },
         { txt:'code a meme generator dude',
@@ -37,7 +37,7 @@ function _createMeme(id){
          strokeColor: 'black',
          fillColor: 'white',
          font:'impact',
-         x: 200,
+         x: 50,
          y: 250}
       ]
    }
@@ -96,9 +96,21 @@ function setFont(font){
    gMeme.lines[gMeme.selectedLineIdx].font = font
 
 }
+function changeStrokeColor(strokeColor){
+   gMeme.lines[gMeme.selectedLineIdx].strokeColor = strokeColor
+   
+}
 
+function  changeFillColor(fillColor){
+   gMeme.lines[gMeme.selectedLineIdx].fillColor = fillColor
+
+}
 function removeLine(){
    const lineIdx =  gMeme.selectedLineIdx
    gMeme.lines.splice(lineIdx, 1)
    if(!gMeme.lines.length) addLine()
+}
+function isOnTxt(lineIdx){
+   
+gMeme.lines[gMeme.selectedLineIdx].x
 }

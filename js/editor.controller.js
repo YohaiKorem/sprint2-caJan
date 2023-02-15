@@ -110,7 +110,7 @@ function measureTxt(txt){
 function drawRect(x, y, txtWidth, size) {
     gCtx.strokeStyle = 'red'
     if(!txtWidth) txtWidth = 100
-    gCtx.strokeRect(x/txtWidth, y-size, txtWidth*1.05, size*2)
+    gCtx.strokeRect(x/2, y-size, txtWidth+x, size*2)
   }
 
   function onRemoveLine(){
@@ -164,15 +164,20 @@ function drawRect(x, y, txtWidth, size) {
       function onDown(ev){
         const pos = getEvPos(ev)
 const{x,y} = pos
-isOnTxt()
-
+ isOnTxt(x,y)
+drawCanvas()
     }
 
       function onMove(ev){
+        if(!gMeme.lines[gMeme.selectedLineIdx].isDrag) return
         const pos = getEvPos(ev)
         const{x,y} = pos
+         moveTxt(x,y)
+         drawCanvas()
       }
       function onUp(ev){
         const pos = getEvPos(ev)
         const{x,y} = pos
+        moveTxt(x,y, 'stop')
+
       }

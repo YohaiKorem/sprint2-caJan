@@ -29,7 +29,8 @@ function _createMeme(id){
             fillColor: 'white',
             font:'impact',
             x: 50,
-            y: 50
+            y: 50,
+            isDrag: false
          },
         { txt:'code a meme generator dude',
          size: 30,
@@ -38,7 +39,8 @@ function _createMeme(id){
          fillColor: 'white',
          font:'impact',
          x: 50,
-         y: 250}
+         y: 250,
+         isDrag: false}
       ]
    }
 }
@@ -56,9 +58,14 @@ function getImgById(imgId){
    return gImgs.find(img => img.id === imgId)
 }
 
-function selectLine(){
-   gMeme.selectedLineIdx++
-    if( gMeme.selectedLineIdx >= gMeme.lines.length ) gMeme.selectedLineIdx = 0
+function selectLine(line, idx){
+   if(!line){
+
+      gMeme.selectedLineIdx++
+      if( gMeme.selectedLineIdx >= gMeme.lines.length ) gMeme.selectedLineIdx = 0
+      return
+   }
+   gMeme.selectedLineIdx = idx
 }
 
 
@@ -77,7 +84,8 @@ function _createLine(){
       fillColor: 'white',
       font:'impact',
       x: 200,
-      y: 150
+      y: 150,
+      isDrag: false
    }
 }
 
@@ -110,7 +118,30 @@ function removeLine(){
    gMeme.lines.splice(lineIdx, 1)
    if(!gMeme.lines.length) addLine()
 }
-function isOnTxt(lineIdx){
-   
-gMeme.lines[gMeme.selectedLineIdx].x
+function isOnTxt(x,y){
+   gMeme.lines.forEach((line, idx) =>{
+      let txtWidth =  measureTxt(line.txt)
+    if(  line.x <= x && 
+      txtWidth+line.x >= x &&
+      line.y-line.size <= y &&
+       line.y + line.size >= y)  {
+         selectLine(line,idx)
+       line.isDrag = true
+      }
+
+      //  gMeme.selectedLineIdx = gMeme.lines.indexOf(line)
+   //  , y-size, txtWidth*1.05, size*2
+   // && line.y-line.size/2 < y && y+ line.size*2 > y 
+})
+
+}
+
+
+function moveTxt(x,y, action){
+   gMeme.lines.forEach(line =>{
+      if(!line.isDrag)return
+      line.x = x;
+      line.y = y;
+      (action === 'stop') ? line.isDrag = false : line.isDrag = true
+   })
 }

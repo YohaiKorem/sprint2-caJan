@@ -9,26 +9,29 @@
 </head>
 <body class="main-layout" onload="renderGallery()">
     <header class="main-header full main-layout">
-        <div class="logo">Memegen</div>
-        <nav class="main-nav">
-            <ul class="flex clean-list">
-                <li><a href="#" onclick="renderGallery()">gallery</a></li>
-                <li><a href="#about">about</a></li>
-            </ul>
-        </nav>
+        <section class="nav flex space-between">
+
+            <div class="logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
+            <nav class="main-nav">
+                <ul class="flex clean-list">
+                    <li><a href="#" onclick="renderGallery()">gallery</a></li>
+                    <li><a href="#about">about</a></li>
+                </ul>
+            </nav>
+        </section>
     </header>
     <section class="search-bar">
-        <input type="text" placeholder="Enter search keyword">
-        <ul class="search-tags flex clean-list">
+        <input type="text" placeholder="Enter search keyword"  name="tags-search-input"><img src="ICONS/search-icon.png" class="icon search-icon">
 
+        <ul class="search-tags flex clean-list">
         </ul>
     </section>
-    <main class="gallery-container ">
+    <main class="gallery-container">
     </main>
 
 <section class="editor-container hidden">
     <div class="canvas-container">
-        <canvas width="400" height="400" id="canvas"></canvas>
+        <canvas width="550" height="550" id="canvas"></canvas>
     </div>
         <section class="editor-btns-container">
             <input type="text" name="meme-line-input" onkeyup="onSetTxt(this.value)">
@@ -53,17 +56,18 @@
 </section>
 
 <section class="about" id="about">
-    <img src="" class="about-img">
-    <h2 class="about-heading">Monica Geller</h2>
+    <img src="img/yohai/yohai.jpg" class="about-img">
+    <h2 class="about-heading">Yohai Korem</h2>
     <p class="about-p">Lorem, ipsum dolor sit amet cons
-        ectetur adipisicing elit. Odit, harum ducimus.</p>
+        ectetur adipisicing elit. Odit, harum ducimus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero dolorem deleniti nemo aperiam neque a magni laudantium nihil tempore ea id excepturi inventore ipsum, aspernatur nam maxime sint quibusdam eligendi.</p>
         <ul class="clean-list social-links">
-            <li></li>
-            <li></li>
+            <li>facebook</li>
+            <li>linkedin</li>
+            <li>git</li>
         </ul>
 </section>
-<footer class="main-footer full">
-    <div class="logo">Memegen</div>
+<footer class="main-footer main-layout full">
+    <div class="logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
     <small>all rights reserved 2019</small>
 </footer>
     <script src="js/services/utils.service.js"></script>

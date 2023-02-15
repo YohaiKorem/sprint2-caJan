@@ -1,0 +1,10 @@
+.logo{
+    min-width: 140px;
+    max-width: 250px;
+    align-self: center;
+    margin: 2em 0 2em;
+}
+
+.logo .logo-img{
+    width: 100%;
+}

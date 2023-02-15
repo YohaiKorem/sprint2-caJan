@@ -1,6 +1,6 @@
 /* SETUP */
  @import "setup/vars.css";
-/* @import "setup/typography.css";  */
+@import "setup/typography.css"; 
 
 /* BASICS */
 @import "basics/base.css";
@@ -12,7 +12,7 @@
 @import "components/header.css";
 @import "components/search-bar.css";
 @import "components/about.css";
-/* @import "components/logo.css"; */
+@import "components/logo.css";
 @import "components/main-gallery.css";
 @import "components/editor.css";
 @import "components/canvas.css";

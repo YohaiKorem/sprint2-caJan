@@ -28,17 +28,16 @@ function drawCanvas() {
     const img = new Image()
     img.src = gCurrImg.url
     img.onload = () => {
-        gMeme.lines.forEach((line, idx) => drawText(line, idx))
-        // drawText()
-        // gCtx.beginPath()
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) 
         
-        //img,x,y,xEnd,yEnd
+
+        gMeme.lines.forEach((line, idx) => drawText(line, idx))
+        
     }
 }
 
 function drawText(line, idx) {
-    gCtx.clearRect(0,0, gCanvas.width, gCanvas.height)
+    
     let {txt, size, align,strokeColor, fillColor,font, x, y} = line
     setTimeout(()=>{
         if(gMeme.selectedLineIdx === idx){

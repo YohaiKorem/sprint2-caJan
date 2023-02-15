@@ -1,6 +1,8 @@
 .main-header{
+  display: flex;
+  justify-content: space-between;
+  grid-column: 1/-1;
     grid-column: 2;  
-      height: 10vh;
-    display: grid;
+      min-height: 10vh;
     background-color: var(--clr1);
 }

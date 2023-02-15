@@ -16,12 +16,12 @@ function renderEditor(){
 function renderCanvas(){
     gCanvas = document.querySelector('#canvas')
     gCtx = gCanvas.getContext('2d')
-    drawImgFromlocal()
+    drawCanvas()
 
 }
 
 
-function drawImgFromlocal() {
+function drawCanvas() {
     
     const img = new Image()
     img.src = gCurrImg.url
@@ -37,7 +37,7 @@ function drawImgFromlocal() {
 
 function drawText(line, idx) {
     gCtx.clearRect(0,0, gCanvas.width, gCanvas.height)
-    // drawImgFromlocal()
+    // drawCanvas()
     let {txt, size, align,strokeColor, fillColor,font, x, y} = line
     setTimeout(()=>{
         if(gMeme.selectedLineIdx === idx){
@@ -57,20 +57,41 @@ function drawText(line, idx) {
 
 function onAddLine(){
     addLine()
-    drawImgFromlocal() 
+    drawCanvas() 
 }
 
 
   function onSetTxt(txt){
       setTxt(txt)
-drawImgFromlocal()   
+drawCanvas()   
  }
 
 function onSelectLine(){
     selectLine()
-    drawImgFromlocal()   
-
+    drawCanvas()   
 }
+
+function onFontGrow(){
+    fontGrow()
+    drawCanvas()
+}
+
+function onFontShrink(){
+    fontShrink()
+    drawCanvas()
+}
+
+function onSetTxtAlign(align){
+setTxtAlign(align)
+drawCanvas()
+}
+
+function onSetFont(font){
+setFont(font)
+drawCanvas()
+}
+
+
 
 function measureTxt(txt){
     return gCtx.measureText(txt).width
@@ -80,6 +101,10 @@ function drawRect(x, y, txtWidth, size) {
     gCtx.strokeStyle = 'red'
     if(!txtWidth) txtWidth = 100
     gCtx.strokeRect(x/txtWidth, y-size, txtWidth*1.05, size*2)
-    
+  }
+
+  function onRemoveLine(){
+    removeLine()
+    drawCanvas()
   }
 

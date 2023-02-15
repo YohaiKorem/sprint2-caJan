@@ -58,7 +58,7 @@ function getImgById(imgId){
 
 function selectLine(){
    gMeme.selectedLineIdx++
-    if(gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
+    if( gMeme.selectedLineIdx >= gMeme.lines.length ) gMeme.selectedLineIdx = 0
 }
 
 
@@ -79,4 +79,26 @@ function _createLine(){
       x: 200,
       y: 150
    }
+}
+
+function fontGrow(){
+   gMeme.lines[gMeme.selectedLineIdx].size++
+}
+
+function fontShrink(){
+   gMeme.lines[gMeme.selectedLineIdx].size--
+
+}
+function setTxtAlign(align){
+   gMeme.lines[gMeme.selectedLineIdx].align = align
+}
+function setFont(font){
+   gMeme.lines[gMeme.selectedLineIdx].font = font
+
+}
+
+function removeLine(){
+   const lineIdx =  gMeme.selectedLineIdx
+   gMeme.lines.splice(lineIdx, 1)
+   if(!gMeme.lines.length) addLine()
 }

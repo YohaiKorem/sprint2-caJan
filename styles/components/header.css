@@ -1,8 +1,12 @@
 .main-header{
-  display: flex;
-  justify-content: space-between;
   grid-column: 1/-1;
     grid-column: 2;  
       min-height: 10vh;
     background-color: var(--clr1);
+    align-items: center;
+}
+
+.main-header .main-nav{
+justify-self: end;
+
 }

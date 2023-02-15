@@ -10,7 +10,7 @@ function onSetCurrImg(imgId){
 function renderEditor(){
     const elEditor = document.querySelector('.editor-container')
     const elGalleryContainer = document.querySelector('.gallery-container')
-    elEditor.classList.toggle('hidden')
+    elEditor.style.display = 'grid'
     elGalleryContainer.style.display = 'none'
     init()
 }

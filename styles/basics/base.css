@@ -2,15 +2,26 @@
     box-sizing: border-box;
 }
 
+html{
+    font-family: montserrat-regular;
+}
+body{
+    font-size: 1rem;
+}
+
 img{
-    width: 300px;
+    width: 100%;
 /* grid-column: 1; */
 } 
-
+a{
+    text-decoration: none;
+}
 .icon{
     width: 50px;
 }
 
-canvas{
-    border: 1px solid black;
+small{
+    font-family: montserrat-thin;
+    color: #ffffff;
+    
 }

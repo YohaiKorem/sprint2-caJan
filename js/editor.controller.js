@@ -17,33 +17,69 @@ function renderCanvas(){
     gCanvas = document.querySelector('#canvas')
     gCtx = gCanvas.getContext('2d')
     drawImgFromlocal()
+
 }
 
 
 function drawImgFromlocal() {
+    
     const img = new Image()
     img.src = gCurrImg.url
     img.onload = () => {
-      gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) //img,x,y,xEnd,yEnd
+        gMeme.lines.forEach((line, idx) => drawText(line, idx))
+        // drawText()
+        // gCtx.beginPath()
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) 
+        
+        //img,x,y,xEnd,yEnd
     }
-  }
+}
 
-  function drawText() {
-    gCtx.beginPath()
-    const {txt, size, align,strokeColor, fillColor,font, x, y} = gMeme.lines[gMeme.selectedLineIdx]
-    console.log(size);
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = strokeColor
-    gCtx.fillStyle = fillColor
-    gCtx.font = `${size} ${font}`
-    gCtx.textAlign = align
-    gCtx.textBaseline = 'middle'
-  
-    gCtx.fillText(txt, x, y) // Draws (fills) a given text at the given (x, y) position.
-    gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
-  }
+function drawText(line, idx) {
+    gCtx.clearRect(0,0, gCanvas.width, gCanvas.height)
+    // drawImgFromlocal()
+    let {txt, size, align,strokeColor, fillColor,font, x, y} = line
+    setTimeout(()=>{
+        if(gMeme.selectedLineIdx === idx){
+            let txtWidth = measureTxt(txt)
+            drawRect(x, y, txtWidth, size)
+        }
+        gCtx.lineWidth = 2
+        gCtx.strokeStyle = strokeColor
+        gCtx.fillStyle = fillColor
+        gCtx.font = `${size}px ${font}`
+        gCtx.textAlign = align
+        gCtx.textBaseline = 'middle'
+        gCtx.fillText(txt, x / gCanvas.width + 10, y) // Draws (fills) a given text at the given (x, y) position.
+        gCtx.strokeText(txt, x / gCanvas.width+ 10, y) // Draws (strokes) a given text at the given (x, y) position.
+    }, 10)
+}
 
- function onSetTxt(txt){
-    setTxt(txt)
-    drawText()
+function onAddLine(){
+    addLine()
+    drawImgFromlocal() 
+}
+
+
+  function onSetTxt(txt){
+      setTxt(txt)
+drawImgFromlocal()   
  }
+
+function onSelectLine(){
+    selectLine()
+    drawImgFromlocal()   
+
+}
+
+function measureTxt(txt){
+    return gCtx.measureText(txt).width
+}
+
+function drawRect(x, y, txtWidth, size) {
+    gCtx.strokeStyle = 'red'
+    if(!txtWidth) txtWidth = 100
+    gCtx.strokeRect(x/txtWidth, y-size, txtWidth*1.05, size*2)
+    
+  }
+

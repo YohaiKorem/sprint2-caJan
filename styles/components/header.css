@@ -1,0 +1,6 @@
+.main-header{
+    grid-column: 2;  
+      height: 10vh;
+    display: grid;
+    background-color: var(--clr1);
+}

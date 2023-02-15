@@ -1,0 +1,4 @@
+.main-footer{
+    grid-column: 2;
+background-color: var(--clr1);
+}

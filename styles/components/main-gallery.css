@@ -1,7 +1,12 @@
 .imgs-container{
-    grid-template-columns: repeat(3, 1fr);
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    row-gap: 20px;
+    column-gap: 20px;
     grid-template-rows: 1fr;
-    grid-auto-flow: column;
+    justify-content: space-between;
+    background-color: var(--clr2);
 }
 
 /* .imgs-container :nth-child(1n){

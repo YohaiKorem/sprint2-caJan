@@ -43,6 +43,31 @@
         <img src="img/17.jpg"  class="meme-img">
         <img src="img/18.jpg"  class="meme-img">
     </main>
+
+<section class="editor-container">
+    <div class="canvas-container">
+        <canvas width="500" height="500"></canvas>
+        <section class="editor-btns-container">
+            <input type="text" name="meme-line-input">
+            <button class="select-line-btn"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" class="icon"></button>
+            <button class="add-line-btn"></button>
+            <button class="remove-line-btn"></button>
+            <button class="font-grow-btn"></button>
+            <button class="font-shrink-btn"></button>
+            <button class="text-align-left-btn"></button>
+            <button class="text-align-center-btn"></button>
+            <button class="text-align-right-btn"></button>
+            <datalist class="choose-font">
+<option value="impact"></option>
+<option value="david"></option>
+<option value="arial"></option>
+            </datalist>
+            <input type="color" name="stroke-color">
+            <input type="color" name="fill-color">
+        </section>
+    </div>
+</section>
+
 <section class="about">
     <img src="" class="about-img">
     <h2 class="about-heading">Monica Geller</h2>
@@ -53,7 +78,10 @@
             <li></li>
         </ul>
 </section>
-
+<footer class="main-footer">
+    <div class="logo">Memegen</div>
+    <small>all rights reserved 2019</small>
+</footer>
     <script src="js/services/utils.service.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/gallery.service.js"></script>

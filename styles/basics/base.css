@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+
+img{
+    width: 300px;
+    grid-column: 1;
+}
+

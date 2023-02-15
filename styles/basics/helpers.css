@@ -1,0 +1,11 @@
+.grid{
+    display: grid;
+}
+
+.flex{
+    display: flex;
+}
+
+.clean-list{
+list-style: none;
+}

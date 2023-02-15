@@ -23,49 +23,33 @@
 
         </ul>
     </section>
-    <main class="imgs-container grid">
-        <img src="img/1.jpg"  class="meme-img">
-        <img src="img/2.jpg"  class="meme-img">
-        <img src="img/3.jpg"  class="meme-img">
-        <img src="img/4.jpg"  class="meme-img">
-        <img src="img/5.jpg"  class="meme-img">
-        <img src="img/6.jpg"  class="meme-img">
-        <img src="img/7.jpg"  class="meme-img">
-        <img src="img/8.jpg"  class="meme-img">
-        <img src="img/9.jpg"  class="meme-img">
-        <img src="img/10.jpg"  class="meme-img">
-        <img src="img/11.jpg"  class="meme-img">
-        <img src="img/12.jpg"  class="meme-img">
-        <img src="img/13.jpg"  class="meme-img">
-        <img src="img/14.jpg"  class="meme-img">
-        <img src="img/15.jpg"  class="meme-img">
-        <img src="img/16.jpg"  class="meme-img">
-        <img src="img/17.jpg"  class="meme-img">
-        <img src="img/18.jpg"  class="meme-img">
+    <main class="gallery-container ">
     </main>
 
-<section class="editor-container">
+    <button class="back-btn">Back</button>
+<section class="editor-container hidden">
     <div class="canvas-container">
-        <canvas width="500" height="500"></canvas>
-        <section class="editor-btns-container">
-            <input type="text" name="meme-line-input">
-            <button class="select-line-btn"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" class="icon"></button>
-            <button class="add-line-btn"></button>
-            <button class="remove-line-btn"></button>
-            <button class="font-grow-btn"></button>
-            <button class="font-shrink-btn"></button>
-            <button class="text-align-left-btn"></button>
-            <button class="text-align-center-btn"></button>
-            <button class="text-align-right-btn"></button>
-            <datalist class="choose-font">
-<option value="impact"></option>
-<option value="david"></option>
-<option value="arial"></option>
-            </datalist>
-            <input type="color" name="stroke-color">
-            <input type="color" name="fill-color">
-        </section>
+        <canvas width="400" height="400" id="canvas"></canvas>
     </div>
+        <section class="editor-btns-container">
+            <input type="text" name="meme-line-input" onkeyup="onSetTxt(this.value)">
+            <button class="select-line-btn"><img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" class="icon"></button>
+            <button class="add-line-btn"><img src="ICONS/add.png" alt="" class="icon"></button>
+            <button class="remove-line-btn"><img src="ICONS/trash.png"  class="icon"></button>
+            <button class="font-grow-btn"><img src="ICONS/increase font - icon.png"  class="icon"></button>
+            <button class="font-shrink-btn"><img src="ICONS/decrease font - icon.png"  class="icon"></button>
+            <button class="text-align-left-btn"><img src="ICONS/align-to-left.png"  class="icon"></button>
+            <button class="text-align-center-btn"><img src="ICONS/center-text-alignment.png"  class="icon"></button>
+            <button class="text-align-right-btn"><img src="ICONS/align-to-right.png"  class="icon"></button>
+            <select class="choose-font">
+<option value="impact">Impact</option>
+<option value="david">David</option>
+<option value="arial">Arial</option>
+            </select>
+            <button class="stroke-color-btn" ><input type="color" name="stroke-color"> <img src="ICONS/text stroke.png" alt="" class="icon"></button>
+            <button class="fill-color-btn"><input type="color" name="fill-color"> <img src="ICONS/paint-board-and-brush.png" alt="" class="icon"></button>
+            <div class="emoji-container">😊😂🤣</div>
+        </section>
 </section>
 
 <section class="about">

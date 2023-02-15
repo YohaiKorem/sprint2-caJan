@@ -1,0 +1,76 @@
+.editor-container{
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'canvas btns';
+    column-gap: 80px;
+}
+
+.editor-btns-container{
+grid-area: btns;
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(7, 1fr);
+gap: 10px;
+}
+
+.editor-btns-container button{
+    border-radius: 20%;
+}
+
+input[name='meme-line-input']{
+    grid-column: 1/-1;
+}
+
+.select-line-btn{
+    grid-column: 2;
+    grid-row: 2;
+}
+.add-line-btn{
+    grid-column: 3;
+    grid-row: 2;
+}
+.remove-line-btn{
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.font-grow-btn{
+    grid-column: 1;
+    grid-row: 3;
+}
+.font-shrink-btn{
+    grid-column: 2;
+    grid-row: 3;
+}
+.text-align-left-btn{
+    grid-column: 3;
+    grid-row: 3;
+}
+.text-align-center-btn{
+    grid-column: 4;
+    grid-row: 3;
+}
+.text-align-right-btn{
+    grid-column: 5;
+    grid-row: 3;
+}
+
+.choose-font{
+    grid-column: 1/4;
+    grid-row: 4;
+}
+
+.stroke-color-btn{
+    grid-column: 4;
+    grid-row: 4;
+} 
+.fill-color-btn{
+    grid-column: 5;
+    grid-row: 4;
+} 
+.emoji-container{
+    background-color: aliceblue;
+    grid-column: 1/-1;
+    grid-row: 5/ 6;
+}

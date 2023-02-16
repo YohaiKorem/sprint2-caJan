@@ -24,7 +24,7 @@ function init(){
 
 
 function drawCanvas() {
-    
+
     const img = new Image()
     img.src = gCurrImg.url
     img.onload = () => {
@@ -37,9 +37,7 @@ function drawCanvas() {
 }
 
 function drawText(line, idx) {
-    
     let {txt, size, align,strokeColor, fillColor,font, x, y} = line
-    setTimeout(()=>{
         if(gMeme.selectedLineIdx === idx){
             let txtWidth = measureTxt(txt)
             drawRect(x, y, txtWidth, size)
@@ -52,7 +50,6 @@ function drawText(line, idx) {
         gCtx.textBaseline = 'middle'
         gCtx.fillText(txt, x , y) // Draws (fills) a given text at the given (x, y) position.
         gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
-    }, 10)
 }
 
 // / gCanvas.width + 10
@@ -107,6 +104,8 @@ function measureTxt(txt){
 }
 
 function drawRect(x, y, txtWidth, size) {
+  gCtx.beginPath()
+
     gCtx.strokeStyle = 'red'
     if(!txtWidth) txtWidth = 100
     gCtx.strokeRect(x/2, y-size, txtWidth+x, size*2)

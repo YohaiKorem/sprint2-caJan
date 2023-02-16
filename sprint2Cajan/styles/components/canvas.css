@@ -7,4 +7,6 @@ canvas{
 .canvas-container{
     grid-area: canvas;
     width: 100%;
+    align-items: center;
+    /* justify-content: center; */
 }

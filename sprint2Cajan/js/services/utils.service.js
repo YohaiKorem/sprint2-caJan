@@ -10,10 +10,10 @@ function makeId(length = 6) {
 }
 
 
-function makeTags(wordCount = getRandomIntInclusive(1, 3)) {
+function makeTags(wordCount = 1) {
     const words = ['funny', 'politics', 'baby', 'sad', 
     'happy', 'dog', 'animal',
-     'awkward']
+     'awkward', 'anime', 'street', 'money', 'coding', 'cooking']
     var txt = ''
     while (wordCount > 0) {
         wordCount--

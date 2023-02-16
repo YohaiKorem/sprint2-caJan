@@ -1,18 +1,53 @@
 .search-bar{
     grid-column: 2;
 padding: 2em 0 2em;
+display: grid;
+grid-template-columns: 1fr 1fr;
 }
 
 input[name='tags-search-input']{
+    background-image: url('/ICONS/search-icon.png');
+    background-size: 1em;
+    background-repeat: no-repeat;
+    background-position: 10.5em 0.3em;
+    text-indent: 20px;
     font-size: 3em;
     border: 0px;
     outline: none;
+}
 
+input[name='tags-search-input']:focus{
+    background-image:none;
 }
 
 .search-icon{
+
     position: relative;
-    right: 100px;
+    right: -32em;
+    top: -3.75em;
     opacity: 0.6;
+    grid-column: 1;
 }
+
+
+.search-tags{
+    /* display: grid; */
+    grid-column: 2;
+    grid-row: 1/-1;
+    grid-auto-flow: column;
+justify-content: space-between;
+align-items: center;
+justify-items: center;
+    color: var(--clr3);
+}
+
+.more-tags{
+text-decoration: underline;
+cursor: pointer;
+}
+
+.tag{
+    cursor: pointer;
+}
+
 

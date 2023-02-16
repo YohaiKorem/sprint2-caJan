@@ -16,15 +16,11 @@ console.log(allTags);
 let newTags = allTags.filter(tag =>{
    return tag.includes(gSearchFor)
 })
-console.log(newTags);
-    // return img.keyWords === gSearchFor
-
-if(!gSearchFor|| !allTags.includes(gSearchFor)) return gImgs
-let imgs = gImgs.filter(img =>{
-    return img.keyWords === gSearchFor
+let imgs = gImgs.filter((img, idx) =>{
+    return img.keyWords === newTags[idx]
 })
+if(!imgs.length) return gImgs
 return imgs
-
 }
 
 

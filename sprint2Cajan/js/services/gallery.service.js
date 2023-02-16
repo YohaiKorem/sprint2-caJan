@@ -11,10 +11,20 @@ _createImgs()
 
 
 function getImgsForDisplay(){
-// gImgs.forEach(img => console.log(img.keyWords))
-    // gImgs.filter(img =>{
-    //     img.keyWords
-    // })
+let allTags = getAllTagsFromGImgs()
+console.log(allTags);
+let newTags = allTags.filter(tag =>{
+   return tag.includes(gSearchFor)
+})
+console.log(newTags);
+    // return img.keyWords === gSearchFor
+
+if(!gSearchFor|| !allTags.includes(gSearchFor)) return gImgs
+let imgs = gImgs.filter(img =>{
+    return img.keyWords === gSearchFor
+})
+return imgs
+
 }
 
 
@@ -23,7 +33,15 @@ function getImgsForDisplay(){
 
 function getTagsForDisplay(){
     let tags = getTagsMap()
-    console.log(tags);
+    let wordMap = []
+    let res = tags.forEach(tag =>{
+      for(let property in tag){
+let value = tag[property]
+
+     if (typeof value === 'string') wordMap.push(value);
+      }
+    })
+       
     let startIdx = gTagsPageIdx * TAGS_PAGE_SIZE
     return tags.slice(startIdx, startIdx + TAGS_PAGE_SIZE)
 }
@@ -39,15 +57,25 @@ function getTagsMap(){
        let tags = getAllTagsFromGImgs()
   
    const tagsMap = tags.map(tag => {return tag =  {tag, wordCount:0}})
-const keyWords = gImgs.reduce((arr,img) =>{
-    arr.push(img.keyWords)
-    return arr
-},[])
-keyWords.forEach(word =>{
-    tagsMap.forEach(tag =>{
-        if(tag.tag === word) tag.wordCount++
+   let keyWords = gImgs.reduce((tags,img) =>{
+       tags.push(img.keyWords)
+       return tags
+    },[])
+   
+    let newWordMap = []
+    keyWords.forEach(word =>{
+        tagsMap.forEach(tagObj =>{
+            let {tag, wordCount} = tagObj
+            if(tag === word) {
+                tagObj.wordCount++;
+                
+            }
+            
+            if(word === tag){
+                newWordMap.push(tagObj)
+            }
+        })
     })
-})
 return tagsMap
 }
 
@@ -82,7 +110,6 @@ function moreTags(){
     (gDisplayTags === 'more') ? gDisplayTags = 'less' : gDisplayTags = 'more'
     TAGS_PAGE_SIZE += 5
     if(TAGS_PAGE_SIZE >= 15) TAGS_PAGE_SIZE = 5
-    console.log(TAGS_PAGE_SIZE);
 }
 
 function getGDisplay(){

@@ -14,9 +14,9 @@ function renderGallery(){
     elGalleryContainer.style.display = 'grid'
     elEditor.style.display = 'none'
     elSearchBar.style.display = 'grid'
-    getImgsForDisplay()
-    // const imgs = getImgsForDisplay()
-    const strHTMLS = gImgs.map((img, idx) =>{
+  let imgs =  getImgsForDisplay()
+     
+    const strHTMLS = imgs.map((img, idx) =>{
         return `<img src="${img.url}"  class="meme-img img${idx + 1}" onclick="onImgClick('${img.id}')">`
     })
     elGalleryContainer.innerHTML = strHTMLS.join('')
@@ -26,6 +26,7 @@ function renderTags(){
    const tags =  getTagsForDisplay()
    const elSearchList = document.querySelector('.search-tags')
    let display = getGDisplay()
+//    console.log(tags);
 // if(display === 'less'){
     let strHTMLs =  tags.map(tag =>{
         return `<li class="tag" style="font-size: ${tag.wordCount * 8}px;" onclick="onSearchTag('${tag.tag}')">${tag.tag}</li>`})
@@ -42,7 +43,9 @@ function  onImgClick(imgId){
 }
 
 function onSearchTag(str){
+    str += ''
        searchTag(str)
+       renderGallery()
 }
 
 

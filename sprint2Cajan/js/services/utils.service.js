@@ -17,7 +17,7 @@ function makeTags(wordCount = 1) {
     var txt = ''
     while (wordCount > 0) {
         wordCount--
-        txt += words[Math.floor(Math.random() * words.length)] + ' '
+        txt += words[Math.floor(Math.random() * words.length)] 
     }
     return txt
 }

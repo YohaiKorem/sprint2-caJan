@@ -6,6 +6,8 @@ padding: 2em 0 2em;
 input[name='tags-search-input']{
     font-size: 3em;
     border: 0px;
+    outline: none;
+
 }
 
 .search-icon{
@@ -13,3 +15,4 @@ input[name='tags-search-input']{
     right: 100px;
     opacity: 0.6;
 }
+

@@ -12,36 +12,26 @@ _createImgs()
 
 
 function getImgsForDisplay(){
-let allTags = getAllTagsFromGImgs()
-let newTags = allTags.filter(tag =>{
-   return tag.includes(gSearchFor)
+let allTags = getTagsMap()
+let filteredTags = allTags.filter(tag =>{
+   return tag.txt.includes(gSearchFor)
 })
-let imgs = gImgs.filter((img, idx) =>{
-    return img.keyWords === newTags[idx]
+let imgs = filteredTags.map(tag =>{
+    return gImgs.filter((img, idx) =>{
+       return  img.keyWords === tag.txt
+    })
 })
 if(!imgs.length) return gImgs
 return imgs
 }
 
 
-
-
-
 function getTagsForDisplay(){
     let tags = getTagsMap()
-//     let wordMap = []
-//     let res = tags.forEach(tag =>{
-//       for(let property in tag){
-// let value = tag[property]
-
-//      if (typeof value === 'string') wordMap.push(value);
-//       }
-//     })
-       
-// .slice(startIdx, startIdx + TAGS_PAGE_SIZE)
-
 let startIdx = gTagsPageIdx * TAGS_PAGE_SIZE
-    return tags.slice(startIdx, startIdx + TAGS_PAGE_SIZE)
+return tags.slice(startIdx, startIdx + TAGS_PAGE_SIZE)
+// console.log('gTags from get tagsForDisplay', gTags);
+ 
 }
 
 function getAllTagsFromGImgs(){
@@ -66,7 +56,7 @@ tagObj[tag]++
     
   });
   
-// let res = tagsMaps.reduce()
+  gTags = tagsMapObjs
 return tagsMapObjs
 }
 
@@ -97,7 +87,17 @@ function  searchTag(str){
     gSearchFor = str
 }
 
-function moreTags(){
+
+function changeTagSize(str){
+   let tags = getTagsForDisplay()
+
+    tags.forEach(tag =>{
+        if(tag.txt === str) tag.count++
+    })
+
+}
+
+function toggleTags(){
     (gDisplayTags === 'more') ? gDisplayTags = 'less' : gDisplayTags = 'more'
     TAGS_PAGE_SIZE += 5
     if(TAGS_PAGE_SIZE >= 15) TAGS_PAGE_SIZE = 5

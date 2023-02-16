@@ -25,14 +25,12 @@ function renderGallery(){
 function renderTags(){
    const tags =  getTagsForDisplay()
    const elSearchList = document.querySelector('.search-tags')
-   console.log(tags);
-   let display = getGDisplay()
-//    console.log(tags);
-// if(display === 'less'){
+//    console.log('tags from renderTags', tags);
+
     let strHTMLs =  tags.map(tag =>{
         return `<li class="tag" style="font-size: ${tag.count * 10}px;" onclick="onSearchTag('${tag.txt}')">${tag.txt}</li>`})
-        strHTMLs.push(`<span class="more-tags" onclick="onMoreTags()">${gDisplayTags}...</span>`)
-    // }   
+        strHTMLs.push(`<span class="more-tags" onclick="onToggleTags()">${gDisplayTags}...</span>`)
+    
 let strHTML = strHTMLs.join('')
     elSearchList.innerHTML = strHTML
 }
@@ -46,12 +44,14 @@ function  onImgClick(imgId){
 function onSearchTag(str){
     str += ''
        searchTag(str)
+       changeTagSize(str)
        renderGallery()
+       renderTags()
 }
 
 
 
-function onMoreTags(){
-moreTags()
+function onToggleTags(){
+    toggleTags()
 renderTags()
 }

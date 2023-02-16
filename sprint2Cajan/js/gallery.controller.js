@@ -25,11 +25,12 @@ function renderGallery(){
 function renderTags(){
    const tags =  getTagsForDisplay()
    const elSearchList = document.querySelector('.search-tags')
+   console.log(tags);
    let display = getGDisplay()
 //    console.log(tags);
 // if(display === 'less'){
     let strHTMLs =  tags.map(tag =>{
-        return `<li class="tag" style="font-size: ${tag.wordCount * 8}px;" onclick="onSearchTag('${tag.tag}')">${tag.tag}</li>`})
+        return `<li class="tag" style="font-size: ${tag.count * 10}px;" onclick="onSearchTag('${tag.txt}')">${tag.txt}</li>`})
         strHTMLs.push(`<span class="more-tags" onclick="onMoreTags()">${gDisplayTags}...</span>`)
     // }   
 let strHTML = strHTMLs.join('')

@@ -3,6 +3,7 @@
 const IMGS_STORAGE_KEY = 'imgsDB'
 let gSearchFor
 let gImgs = []
+let gTags
 let TAGS_PAGE_SIZE = 5
 let gTagsPageIdx = 0
 let gDisplayTags = 'more'
@@ -12,7 +13,6 @@ _createImgs()
 
 function getImgsForDisplay(){
 let allTags = getAllTagsFromGImgs()
-console.log(allTags);
 let newTags = allTags.filter(tag =>{
    return tag.includes(gSearchFor)
 })
@@ -29,16 +29,18 @@ return imgs
 
 function getTagsForDisplay(){
     let tags = getTagsMap()
-    let wordMap = []
-    let res = tags.forEach(tag =>{
-      for(let property in tag){
-let value = tag[property]
+//     let wordMap = []
+//     let res = tags.forEach(tag =>{
+//       for(let property in tag){
+// let value = tag[property]
 
-     if (typeof value === 'string') wordMap.push(value);
-      }
-    })
+//      if (typeof value === 'string') wordMap.push(value);
+//       }
+//     })
        
-    let startIdx = gTagsPageIdx * TAGS_PAGE_SIZE
+// .slice(startIdx, startIdx + TAGS_PAGE_SIZE)
+
+let startIdx = gTagsPageIdx * TAGS_PAGE_SIZE
     return tags.slice(startIdx, startIdx + TAGS_PAGE_SIZE)
 }
 
@@ -51,28 +53,21 @@ function getAllTagsFromGImgs(){
 
 function getTagsMap(){
        let tags = getAllTagsFromGImgs()
+
+   const tagsMap = tags.reduce((tagObj, tag) =>{
+if(!tagObj[tag]) tagObj[tag] = 0
+tagObj[tag]++
+        return tagObj
+    }, {})
+  let tagsMaps =  Object.entries(tagsMap)
+  let tagsMapObjs = []
+  tagsMaps.forEach(tag =>{
+    tagsMapObjs.push({txt:tag[0], count:tag[1]}) 
+    
+  });
   
-   const tagsMap = tags.map(tag => {return tag =  {tag, wordCount:0}})
-   let keyWords = gImgs.reduce((tags,img) =>{
-       tags.push(img.keyWords)
-       return tags
-    },[])
-   
-    let newWordMap = []
-    keyWords.forEach(word =>{
-        tagsMap.forEach(tagObj =>{
-            let {tag, wordCount} = tagObj
-            if(tag === word) {
-                tagObj.wordCount++;
-                
-            }
-            
-            if(word === tag){
-                newWordMap.push(tagObj)
-            }
-        })
-    })
-return tagsMap
+// let res = tagsMaps.reduce()
+return tagsMapObjs
 }
 
 

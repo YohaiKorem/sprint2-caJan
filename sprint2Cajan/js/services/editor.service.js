@@ -9,11 +9,20 @@ function setCurrImg(imgId){
    const img = getImgById(imgId)
    gCurrImg = img
    if(gMeme)  return
+   
+
+
    setMeme(imgId)
 }
 
 function setMeme(imgId){
+   if(gMeme)  return
    gMeme = _createMeme(imgId)
+}
+function newMeme(){
+
+   gMeme = null
+   gCurrImg = null
 }
 
 

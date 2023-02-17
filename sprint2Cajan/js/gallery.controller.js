@@ -2,8 +2,8 @@
 
 
 function onInit(){
-    renderGallery()
     renderTags()
+    renderGallery()
 }
 
 
@@ -15,14 +15,14 @@ function renderGallery(){
     elEditor.style.display = 'none'
     elSearchBar.style.display = 'grid'
   let imgs =  getImgsForDisplay()
-     
-    const strHTMLS = imgs.map((img, idx) =>{
-        return `<img src="${img.url}"  class="meme-img img${idx + 1}" onclick="onImgClick('${img.id}')">`
+  const strHTMLS = imgs.map((img, idx) =>{
+  return `<img src="${img.url}"  class="meme-img img${idx + 1}" onclick="onImgClick('${img.id}')">`
     })
     elGalleryContainer.innerHTML = strHTMLS.join('')
 }
 
 function renderTags(){
+    if(gSearchFor) changeTagSize(gSearchFor)
    const tags =  getTagsForDisplay()
    const elSearchList = document.querySelector('.search-tags')
 //    console.log('tags from renderTags', tags);
@@ -44,7 +44,7 @@ function  onImgClick(imgId){
 function onSearchTag(str){
     str += ''
        searchTag(str)
-       changeTagSize(str)
+    //    changeTagSize(str)
        renderGallery()
        renderTags()
 }

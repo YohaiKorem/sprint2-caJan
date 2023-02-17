@@ -13,25 +13,34 @@ _createImgs()
 
 function getImgsForDisplay(){
 let allTags = getTagsMap()
+
+
 let filteredTags = allTags.filter(tag =>{
    return tag.txt.includes(gSearchFor)
 })
 let imgs = filteredTags.map(tag =>{
     return gImgs.filter((img, idx) =>{
-       return  img.keyWords === tag.txt
+        return img.keyWords === tag.txt
+        
     })
 })
+
 if(!imgs.length) return gImgs
+let result =  (arr) =>
+{
+    return arr
+}
+imgs = result(...imgs)
+
 return imgs
 }
 
 
 function getTagsForDisplay(){
-    let tags = getTagsMap()
+    let tags =gTags
+    if(!tags) tags = getTagsMap()
 let startIdx = gTagsPageIdx * TAGS_PAGE_SIZE
-return tags.slice(startIdx, startIdx + TAGS_PAGE_SIZE)
-// console.log('gTags from get tagsForDisplay', gTags);
- 
+return tags.slice(startIdx, startIdx + TAGS_PAGE_SIZE) 
 }
 
 function getAllTagsFromGImgs(){
@@ -57,7 +66,7 @@ tagObj[tag]++
   });
   
   gTags = tagsMapObjs
-return tagsMapObjs
+return gTags
 }
 
 
@@ -78,7 +87,7 @@ function _createImg(idx){
 return {
 id:makeId(),
 url: `img/${idx+1}.jpg`,
-keyWords: makeTags()
+keyWords:makeTags()
 }
 }
 
@@ -91,8 +100,11 @@ function  searchTag(str){
 function changeTagSize(str){
    let tags = getTagsForDisplay()
 
-    tags.forEach(tag =>{
-        if(tag.txt === str) tag.count++
+   gTags = tags.map(tag =>{
+        if(tag.txt === str)  tag.count++
+        // console.log('tag, tag.count', tag, tag.count);
+        // console.log('tag, tag.count', tag, tag.count);
+        return tag
     })
 
 }
@@ -105,4 +117,10 @@ function toggleTags(){
 
 function getGDisplay(){
     return gDisplayTags
+}
+
+function getImgByID(id){
+  return  gImgs.find(img=>{
+      return  img.id === id
+    })
 }

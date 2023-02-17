@@ -30,8 +30,8 @@
 
 .backdrop{
     background-color: var(--clr1);
-    width: 100vw;
-    height: 100vh;
+    width: 200vw;
+    height: 200vh;
     position: fixed;
     top: 0px;
     opacity: 0;
@@ -104,4 +104,9 @@ align-items: center;}
 .canvas-container{
     justify-content: center;
 }
+
+input[name='tags-search-input']{
+    background-position: 95% 50%;
+}
+
 }

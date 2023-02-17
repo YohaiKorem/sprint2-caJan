@@ -24,7 +24,10 @@ function renderEditor(imgId){
 function init(){
     gCanvas = document.querySelector('#canvas')
     gCtx = gCanvas.getContext('2d')
-    gCanvas.height = gCanvas.width
+    const elCanvasContainer = document.querySelector('.canvas-container')
+    gCanvas.width = elCanvasContainer.offsetWidth - 100
+    
+    gCanvas.height = gCanvas.width 
     drawCanvas()
     addListeners()
 }

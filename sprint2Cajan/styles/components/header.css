@@ -18,6 +18,11 @@ justify-self: end;
   margin: 2em 0 2em;
   justify-content: space-between;
 }
+
+.clean-list{
+  align-items: center;
+}
+
 .main-nav li{
   margin-inline-start: 20px;
 }

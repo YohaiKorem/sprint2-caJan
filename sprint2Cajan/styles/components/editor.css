@@ -117,3 +117,9 @@ button.custom-img-btn{
     background-color: var(--clr1);
     place-self: center;
 }
+
+
+input.file-input{
+    width: 100%;
+    height: 100%;
+}

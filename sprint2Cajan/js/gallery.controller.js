@@ -8,6 +8,7 @@ function onInit(){
 
 
 function renderGallery(){
+    
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elEditor = document.querySelector('.editor-container')
   const elSearchBar =  document.querySelector('.search-bar')

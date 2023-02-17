@@ -8,6 +8,7 @@ function onSetCurrImg(imgId){
     setCurrImg(imgId)
 }
 function renderEditor(imgId){
+
     const elEditor = document.querySelector('.editor-container')
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elSearchBar =  document.querySelector('.search-bar')
@@ -202,4 +203,8 @@ download()
     loadSavedMeme()
     const imgId = gMeme.selectedImgId
     renderEditor(imgId)
+  }
+
+  function onNewMeme(){
+   newMeme()
   }

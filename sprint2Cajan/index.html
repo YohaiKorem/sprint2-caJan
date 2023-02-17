@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css" />
-    <title>Document</title>
+    <title>MEMEGEN</title>
 </head>
 <body class="main-layout" onload="onInit()">
     <header class="main-header full main-layout">
@@ -14,6 +14,7 @@
             <div class="logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
             <nav class="main-nav">
                 <ul class="flex clean-list">
+                    <li><a href="#" onclick="onLoadSavedMeme()">Saved memes</a></li>
                     <li><a href="#" onclick="renderGallery()">gallery</a></li>
                     <li><a href="#about">about</a></li>
                 </ul>
@@ -52,6 +53,9 @@
             <button class="stroke-color-btn" ><input type="color" name="stroke-color" onchange="onChangeStrokeColor(this.value)"> <img src="ICONS/text stroke.png" alt="" class="icon"></button>
             <button class="fill-color-btn"><input type="color" name="fill-color" onchange="onChangeFillColor(this.value)"> <img src="ICONS/paint-board-and-brush.png" alt="" class="icon"></button>
             <div class="emoji-container">😊😂🤣</div>
+            <button class="share-btn" onclick="onShare()">Share</button>
+            <button class="save-btn" onclick="onSave()">Save</button>
+            <button class="download-btn" onclick="onDownload()">Download</button>
         </section>
 </section>
 

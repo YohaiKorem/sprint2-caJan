@@ -7,13 +7,14 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onSetCurrImg(imgId){
     setCurrImg(imgId)
 }
-function renderEditor(){
+function renderEditor(imgId){
     const elEditor = document.querySelector('.editor-container')
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elSearchBar =  document.querySelector('.search-bar')
     elSearchBar.style.display = 'none'
     elEditor.style.display = 'grid'
     elGalleryContainer.style.display = 'none'
+    onSetCurrImg(imgId)
     init()
 }
 
@@ -182,3 +183,23 @@ drawCanvas()
         moveTxt(x,y, 'stop')
 
       }
+
+
+  function    onShare(){
+    console.log('share');
+    share()
+  }
+  function onSave(){
+save()
+    console.log('save');
+  }
+  function onDownload(){
+download()
+    console.log('download');
+  }
+
+  function onLoadSavedMeme(){
+    loadSavedMeme()
+    const imgId = gMeme.selectedImgId
+    renderEditor(imgId)
+  }

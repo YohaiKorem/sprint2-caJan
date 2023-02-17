@@ -1,14 +1,15 @@
 'use strict'
 let gCurrImg
 let gMeme
+const MEMES_STORAGE_KEY = 'memesDB'
 
 
 
 function setCurrImg(imgId){
    const img = getImgById(imgId)
    gCurrImg = img
+   if(gMeme)  return
    setMeme(imgId)
-  
 }
 
 function setMeme(imgId){
@@ -144,4 +145,20 @@ function moveTxt(x,y, action){
       line.y = y;
       (action === 'stop') ? line.isDrag = false : line.isDrag = true
    })
+}
+
+function save(){
+   _saveMemeToStorage(gMeme)
+}
+
+
+function share(){}
+function download(){}
+
+
+function _saveMemeToStorage(val){
+   saveToStorage(MEMES_STORAGE_KEY , val)
+}
+function loadSavedMeme(){
+   gMeme = loadFromStorage(MEMES_STORAGE_KEY)
 }

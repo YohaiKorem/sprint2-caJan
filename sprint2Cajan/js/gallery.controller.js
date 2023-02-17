@@ -37,8 +37,7 @@ let strHTML = strHTMLs.join('')
 
 
 function  onImgClick(imgId){
-    onSetCurrImg(imgId)
-    renderEditor()
+    renderEditor(imgId)
 }
 
 function onSearchTag(str){

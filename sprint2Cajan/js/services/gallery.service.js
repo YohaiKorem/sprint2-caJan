@@ -72,7 +72,7 @@ return gTags
 
 function _createImgs(){
     let imgs = loadFromStorage(IMGS_STORAGE_KEY)
-    if(!imgs){
+    if(!imgs || !imgs.length){
         imgs=[]
         for(let i = 0; i < 18; i++){
           const img =  _createImg(i)
@@ -123,4 +123,10 @@ function getImgByID(id){
   return  gImgs.find(img=>{
       return  img.id === id
     })
+}
+
+
+
+function _saveImgsToStorage( val){
+    saveToStorage(IMGS_STORAGE_KEY , val)
 }

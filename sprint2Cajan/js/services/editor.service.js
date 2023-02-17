@@ -4,7 +4,6 @@ let gMeme
 const MEMES_STORAGE_KEY = 'memesDB'
 
 
-
 function setCurrImg(imgId){
    const img = getImgById(imgId)
    gCurrImg = img
@@ -15,13 +14,38 @@ function setCurrImg(imgId){
 
 function setMeme(imgId){
    if(gMeme)  return
-   gMeme = _createMeme(imgId)
+   (gFlex) ? gMeme = getRandomMeme(imgId) : gMeme = _createMeme(imgId)
 }
 function newMeme(){
 
    gMeme = null
    gCurrImg = null
 }
+
+
+function getRandomMeme(id){
+
+   return {
+      selectedImgId:id,
+      selectedLineIdx: 0,
+      lines:[getRandomLine()]
+
+}
+}
+function getRandomLine(){
+   return {
+      txt:makeRandomMemeLines(1),
+      size: getRandomIntInclusive(20,50),
+      align: 'left',
+      strokeColor: 'black',
+      fillColor: 'white',
+      font:'impact',
+      x: 200,
+      y: 150,
+      isDrag: false
+   }
+}
+
 
 
 function _createMeme(id){
@@ -53,6 +77,19 @@ function _createMeme(id){
    }
 }
 
+function _createLine(){
+   return {
+       txt:'',
+       size: 20,
+       align: 'left',
+       strokeColor: 'black',
+       fillColor: 'white',
+       font:'impact',
+       x: 200,
+       y: 150,
+       isDrag: false
+    }
+ }
 
 
 function  setTxt(txt){
@@ -83,19 +120,7 @@ function addLine(){
    gMeme.selectedLineIdx = gMeme.lines.indexOf(newLine)
 }
 
-function _createLine(){
-  return {
-      txt:'',
-      size: 20,
-      align: 'left',
-      strokeColor: 'black',
-      fillColor: 'white',
-      font:'impact',
-      x: 200,
-      y: 150,
-      isDrag: false
-   }
-}
+
 
 function fontGrow(){
    gMeme.lines[gMeme.selectedLineIdx].size++

@@ -30,6 +30,7 @@
        
     </header>
     <section class="search-bar" >
+        <button class="flexible-btn" onclick="onFlexible()">I`m flexible</button>
         <input type="text" placeholder="Enter search keyword"  name="tags-search-input" onkeyup="onSetFilter(this.value)">
         <ul class="search-tags flex clean-list" >
             
@@ -64,7 +65,6 @@
             <button class="share-btn" onclick="onShare()">Share</button>
             <button class="save-btn" onclick="onSave()">Save</button>
             <button class="custom-img-btn" >Use custom picture
-            
                 <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
             
             </button>

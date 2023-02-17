@@ -105,9 +105,18 @@ align-items: center;}
     justify-content: center;
 }
 
+
+.flexible-btn{
+    justify-self: end;
+
+}
+
 input[name='tags-search-input']{
     background-position: 95% 50%;
-    max-height: 60%;
+    text-indent: 10px;
+    font-size: 2em;
+    grid-row: 1;
+    place-self: center;
 }
 
 }

@@ -7,6 +7,9 @@ let gTags
 let TAGS_PAGE_SIZE = 5
 let gTagsPageIdx = 0
 let gDisplayTags = 'more'
+
+
+
 // let gTags = getAllTags()
 _createImgs()
 
@@ -136,3 +139,11 @@ function addImgToData(imgURL){
 //  JSON.stringify(imgURL)
 gImgs.push(newImg)
 }
+
+
+function getRandomImg(){
+    return gImgs[getRandomIntInclusive(0,gImgs.length-1)]
+}
+
+
+

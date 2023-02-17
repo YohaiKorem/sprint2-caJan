@@ -10,6 +10,20 @@ function makeId(length = 6) {
 }
 
 
+function makeRandomMemeLines(wordCount = 2){
+    const words = ['i hate it when', 'people ask me', 'what\'s cooking good looking', 'are you just happy to see me?', 
+    'is that a canvas in your pocket', 'code, code everywhere', 'skidadle skidoodle',
+     'eat some bagels', 'tal mooseri the traitor', 'never in my life', 'would you rather', 'have a lovely day', 'howdy partner', 'enough is enough', 'so thirsty']
+     let txt = ''
+
+     while (wordCount > 0) {
+        wordCount--
+        txt += words[Math.floor(Math.random() * words.length)] 
+    }
+    return txt
+}
+
+
 function makeTags(wordCount = 1) {
     const words = ['funny', 'politics', 'baby', 'sad', 
     'happy', 'dog', 'animal',

@@ -1,5 +1,5 @@
 'use strict'
-
+let gFlex
 
 function onInit(){
     renderTags()
@@ -16,6 +16,7 @@ function renderFilterByQueryStringParams() {
 
 
 function renderGallery(){
+     gFlex = false
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elEditor = document.querySelector('.editor-container')
   const elSearchBar =  document.querySelector('.search-bar')
@@ -90,4 +91,11 @@ function closeMenu(){
     elMainNav.classList.remove('open')
     elHiddenLogo.classList.remove('open')
     elBackdrop.classList.remove('open')
+}
+
+
+function onFlexible(){
+   let img = getRandomImg()
+gFlex = true
+ renderEditor(img.id)
 }

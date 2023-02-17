@@ -75,18 +75,18 @@ function _createImgs(){
     if(!imgs || !imgs.length){
         imgs=[]
         for(let i = 0; i < 18; i++){
-          const img =  _createImg(i)
+          const img =  createImg(i)
 imgs.push(img)
         }
     }
     gImgs = imgs
 }
 
-function _createImg(idx){
+function createImg(idx, url = `img/${idx+1}.jpg` ){
 
 return {
 id:makeId(),
-url: `img/${idx+1}.jpg`,
+url,
 keyWords:makeTags()
 }
 }
@@ -129,4 +129,10 @@ function getImgByID(id){
 
 function _saveImgsToStorage( val){
     saveToStorage(IMGS_STORAGE_KEY , val)
+}
+
+function addImgToData(imgURL){
+ let newImg =   _createImg(gImgs.length, imgURL)
+//  JSON.stringify(imgURL)
+gImgs.push(newImg)
 }

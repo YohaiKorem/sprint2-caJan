@@ -10,8 +10,6 @@ function setCurrImg(imgId){
    gCurrImg = img
    if(gMeme)  return
    
-
-
    setMeme(imgId)
 }
 
@@ -161,14 +159,10 @@ function save(){
 }
 
 
-function share(){
-console.log('hi');
+
+function setCustomImg(){
 
 }
-
-
-
-function download(){}
 
 
 function _saveMemeToStorage(val){

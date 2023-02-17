@@ -7,8 +7,8 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onSetCurrImg(imgId){
     setCurrImg(imgId)
 }
-function renderEditor(imgId){
 
+function renderEditor(imgId){
     const elEditor = document.querySelector('.editor-container')
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elSearchBar =  document.querySelector('.search-bar')
@@ -27,11 +27,15 @@ function init(){
     addListeners()
 }
 
+function drawCanvas(userImg) {
+if(!userImg) userImg = gCurrImg
 
-function drawCanvas() {
+let url = ''
+url += userImg.url
 
-    const img = new Image()
-    img.src = gCurrImg.url
+  const img = new Image()
+   
+    img.src = url
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) 
         
@@ -129,7 +133,6 @@ function drawRect(x, y, txtWidth, size) {
       init()
     })}
 
-
     function addMouseListeners() {
         gCanvas.addEventListener('mousedown', onDown)
         gCanvas.addEventListener('mousemove', onMove)
@@ -141,7 +144,6 @@ function drawRect(x, y, txtWidth, size) {
         gCanvas.addEventListener('touchmove', onMove)
         gCanvas.addEventListener('touchend', onUp)
       }
-
 
        function getEvPos(ev) {
         // Gets the offset pos , the default pos
@@ -170,7 +172,6 @@ const{x,y} = pos
  isOnTxt(x,y)
 drawCanvas()
     }
-
       function onMove(ev){
         if(!gMeme.lines[gMeme.selectedLineIdx].isDrag) return
         const pos = getEvPos(ev)
@@ -184,7 +185,6 @@ drawCanvas()
         moveTxt(x,y, 'stop')
 
       }
-
 
   function    onShare(){
       const imgDataUrl = gCanvas.toDataURL('image/jpeg') // Gets the canvas content as an image format
@@ -227,15 +227,14 @@ drawCanvas()
       XHR.send(formData)
   }
 
-
-  
   function onSave(){
 save()
   }
-  function onDownload(){
-download()
-    console.log('download');
-  }
+
+  // function onSetCustomImg(){
+  //   setCustomImg()
+  //   console.log('download');
+  // }
 
   function onLoadSavedMeme(){
     loadSavedMeme()
@@ -246,3 +245,40 @@ download()
   function onNewMeme(){
    newMeme()
   }
+
+
+  function onImgInput(ev) {
+    loadImageFromInput(ev, drawCanvas)
+}
+
+// CallBack func will run on success load of the img
+function loadImageFromInput(ev, onImageReady) {
+    const reader = new FileReader()
+    // After we read the file
+    reader.onload = function (event) {
+        let img = new Image() // Create a new html img element
+        img.src = event.target.result // Set the img src to the img file we read
+        // Run the callBack func, To render the img on the canvas
+        gCurrImg = createImg(gImgs.length, img.src)
+        img.onload = () => onImageReady(gCurrImg)
+        // onAddImgToData(img)
+        // setCurrImg(gImgs[gImgs.length-1].id)
+        // setMeme(gImgs[gImgs.length-1].id)
+        // Can also do it this way:
+        // img.onload = () => onImageReady(img)
+    }
+    reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
+}
+
+function renderImg(img) {
+    // Draw the img on the canvas
+    // 
+    // console.log(gCurrImg);
+    // // 
+    // console.log(gCurrImg);
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+}
+
+function  onAddImgToData(imgURL){
+  addImgToData(imgURL)
+}

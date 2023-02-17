@@ -105,14 +105,14 @@ cursor: pointer;
     grid-row: 6;
     grid-column: 3;
 }
-.download-btn{
+.custom-img-btn{
     grid-row: 6;
     grid-column: 4;
 }
 
 button.share-btn,
 button.save-btn,
-button.download-btn{
+button.custom-img-btn{
     width: 100px;
     background-color: var(--clr1);
     place-self: center;

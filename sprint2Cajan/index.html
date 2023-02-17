@@ -16,8 +16,8 @@
                 <ul class="flex clean-list">
                     <div class="logo hidden-logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
                     <li><a href="#" onclick="onLoadSavedMeme()">Saved memes</a></li>
-                    <li><a href="#" onclick="renderGallery(), closeMenu()">gallery</a></li>
-                    <li><a href="#about" onclick="closeMenu()">about</a></li>
+                    <li><a href="#" onclick="renderGallery()">gallery</a></li>
+                    <li><a href="#about" >about</a></li>
                 </ul>
             </nav>
             <button class="menu-btn" onclick="openMenu()">
@@ -39,7 +39,7 @@
 
 <section class="editor-container hidden">
     <div class="canvas-container flex">
-        <canvas width="550" height="550" id="canvas"></canvas>
+        <canvas id="canvas"></canvas>
     </div>
         <section class="editor-btns-container">
             <input type="text" name="meme-line-input" onkeyup="onSetTxt(this.value)">

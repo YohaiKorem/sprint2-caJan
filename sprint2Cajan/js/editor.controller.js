@@ -12,6 +12,8 @@ function renderEditor(imgId){
     const elEditor = document.querySelector('.editor-container')
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elSearchBar =  document.querySelector('.search-bar')
+    const elAboutSection = document.querySelector('.about')
+    elAboutSection.style.display = 'none'
     elSearchBar.style.display = 'none'
     elEditor.style.display = 'grid'
     elGalleryContainer.style.display = 'none'

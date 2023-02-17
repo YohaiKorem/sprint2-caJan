@@ -12,6 +12,8 @@ function renderGallery(){
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elEditor = document.querySelector('.editor-container')
   const elSearchBar =  document.querySelector('.search-bar')
+  const elAboutSection = document.querySelector('.about')
+    elAboutSection.style.display = 'grid'
     elGalleryContainer.style.display = 'grid'
     elEditor.style.display = 'none'
     elSearchBar.style.display = 'grid'
@@ -61,7 +63,7 @@ function openMenu(){
     const elHiddenLogo = document.querySelector('.hidden-logo')
     const elBackdrop = document.querySelector('.backdrop')
     elMainNav.classList.add('open')
-    elHiddenLogo.classList.toggle('hidden')
+    elHiddenLogo.classList.add('open')
     elBackdrop.classList.add('open')
 }
 
@@ -70,6 +72,6 @@ function closeMenu(){
     const elHiddenLogo = document.querySelector('.hidden-logo')
     const elBackdrop = document.querySelector('.backdrop')
     elMainNav.classList.remove('open')
-    elHiddenLogo.classList.toggle('hidden')
+    elHiddenLogo.classList.remove('open')
     elBackdrop.classList.remove('open')
 }

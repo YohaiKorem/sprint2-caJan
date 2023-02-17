@@ -2,6 +2,7 @@
     grid-column: 2;
 background-color: var(--clr1);
 place-items: center;
+margin-block-start: 10px;
 }
 
 .main-footer small{

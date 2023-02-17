@@ -161,7 +161,13 @@ function save(){
 }
 
 
-function share(){}
+function share(){
+console.log('hi');
+
+}
+
+
+
 function download(){}
 
 

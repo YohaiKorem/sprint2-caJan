@@ -20,6 +20,7 @@ function renderGallery(){
   return `<img src="${img.url}"  class="meme-img img${idx + 1}" onclick="onImgClick('${img.id}')">`
     })
     elGalleryContainer.innerHTML = strHTMLS.join('')
+    closeMenu()
 }
 
 function renderTags(){
@@ -49,9 +50,26 @@ function onSearchTag(str){
        renderTags()
 }
 
-
-
 function onToggleTags(){
     toggleTags()
 renderTags()
+}
+
+
+function openMenu(){
+    const elMainNav = document.querySelector('.main-nav')
+    const elHiddenLogo = document.querySelector('.hidden-logo')
+    const elBackdrop = document.querySelector('.backdrop')
+    elMainNav.classList.add('open')
+    elHiddenLogo.classList.toggle('hidden')
+    elBackdrop.classList.add('open')
+}
+
+function closeMenu(){
+    const elMainNav = document.querySelector('.main-nav')
+    const elHiddenLogo = document.querySelector('.hidden-logo')
+    const elBackdrop = document.querySelector('.backdrop')
+    elMainNav.classList.remove('open')
+    elHiddenLogo.classList.toggle('hidden')
+    elBackdrop.classList.remove('open')
 }

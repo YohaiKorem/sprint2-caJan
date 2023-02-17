@@ -14,17 +14,19 @@
             <div class="logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
             <nav class="main-nav">
                 <ul class="flex clean-list">
+                    <div class="logo hidden-logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
                     <li><a href="#" onclick="onLoadSavedMeme()">Saved memes</a></li>
-                    <li><a href="#" onclick="renderGallery(), onNewMeme()">gallery</a></li>
-                    <li><a href="#about">about</a></li>
+                    <li><a href="#" onclick="renderGallery(), closeMenu()">gallery</a></li>
+                    <li><a href="#about" onclick="closeMenu()">about</a></li>
                 </ul>
             </nav>
+            <button class="menu-btn" onclick="openMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
         </section>
-        <button class="menu-btn">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </button>
+       
     </header>
     <section class="search-bar" >
         <input type="text" placeholder="Enter search keyword"  name="tags-search-input" onkeyup="onSearchTag(this.value)">
@@ -83,6 +85,8 @@
     <div class="logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
     <small>all rights reserved 2019</small>
 </footer>
+
+<div class="backdrop" onclick="closeMenu()"></div>
     <script src="js/services/utils.service.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/gallery.service.js"></script>

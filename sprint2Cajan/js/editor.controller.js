@@ -237,9 +237,11 @@ save()
   // }
 
   function onLoadSavedMeme(){
+    closeMenu()
     loadSavedMeme()
     const imgId = gMeme.selectedImgId
     renderEditor(imgId)
+
   }
 
   function onNewMeme(){

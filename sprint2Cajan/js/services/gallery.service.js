@@ -1,7 +1,7 @@
 'use strict'
 
 const IMGS_STORAGE_KEY = 'imgsDB'
-let gSearchFor
+let gFilterBy
 let gImgs = []
 let gTags
 let TAGS_PAGE_SIZE = 5
@@ -16,7 +16,7 @@ let allTags = getTagsMap()
 
 
 let filteredTags = allTags.filter(tag =>{
-   return tag.txt.includes(gSearchFor)
+   return tag.txt.includes(gFilterBy)
 })
 let imgs = filteredTags.map(tag =>{
     return gImgs.filter((img, idx) =>{
@@ -92,8 +92,8 @@ keyWords:makeTags()
 }
 
 
-function  searchTag(str){
-    gSearchFor = str
+function  setFilter(filterBy){
+    gFilterBy = filterBy
 }
 
 

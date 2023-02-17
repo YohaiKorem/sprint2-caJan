@@ -56,8 +56,9 @@ function drawText(line, idx) {
         gCtx.font = `${size}px ${font}`
         gCtx.textAlign = align
         gCtx.textBaseline = 'middle'
-        gCtx.fillText(txt, x , y) // Draws (fills) a given text at the given (x, y) position.
-        gCtx.strokeText(txt, x, y) // Draws (strokes) a given text at the given (x, y) position.
+        // y= translatedY(y)
+        gCtx.fillText(txt, x , y, gCanvas.width) // Draws (fills) a given text at the given (x, y) position.
+        gCtx.strokeText(txt, x, y, gCanvas.width) // Draws (strokes) a given text at the given (x, y) position.
 }
 
 // / gCanvas.width + 10

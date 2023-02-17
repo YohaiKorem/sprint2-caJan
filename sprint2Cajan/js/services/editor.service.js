@@ -31,7 +31,7 @@ function _createMeme(id){
       lines:[
          {
             txt:'coding academy be like',
-            size: 30,
+            size: 20,
             align: 'left',
             strokeColor: 'black',
             fillColor: 'white',
@@ -41,7 +41,7 @@ function _createMeme(id){
             isDrag: false
          },
         { txt:'code a meme generator dude',
-         size: 30,
+         size: 20,
          align: 'left',
          strokeColor: 'black',
          fillColor: 'white',
@@ -86,7 +86,7 @@ function addLine(){
 function _createLine(){
   return {
       txt:'',
-      size: 40,
+      size: 20,
       align: 'left',
       strokeColor: 'black',
       fillColor: 'white',
@@ -127,14 +127,19 @@ function removeLine(){
    if(!gMeme.lines.length) addLine()
 }
 function isOnTxt(x,y){
-   console.log(x,y);
+   // console.log(x,y);
    gMeme.lines.forEach((line, idx) =>{
       let txtWidth =  measureTxt(line.txt)
-      console.log('txtWidth', txtWidth);
-    if(  line.x <= x && 
-      txtWidth+line.x >= x &&
-      line.y-line.size <= y &&
-       line.y + line.size >= y)  {
+      console.log('touched y', y);
+      // console.log(`${idx} size`, line.size);
+      console.log(`${idx} line.y`, line.y);
+
+     if( line.x/2 <= x && 
+      txtWidth+line.x + 30 >= x && line.y<= y &&
+        line.y + line.size*2 >= y ) 
+      
+      {
+         //  console.log('in Y');
          selectLine(line,idx)
        line.isDrag = true
       }
@@ -164,3 +169,5 @@ function _saveMemeToStorage(val){
 function loadSavedMeme(){
    gMeme = loadFromStorage(MEMES_STORAGE_KEY)
 }
+
+

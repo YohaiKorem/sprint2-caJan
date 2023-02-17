@@ -6,9 +6,16 @@ function onInit(){
     renderGallery()
 }
 
+function renderFilterByQueryStringParams() {
+    const queryStringParams = new URLSearchParams(window.location.search);
+    const filterBy = queryStringParams.get("filter");
+    if (!filterBy) return;
+    setFilter(filterBy);
+  }
+
+
 
 function renderGallery(){
-    
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elEditor = document.querySelector('.editor-container')
   const elSearchBar =  document.querySelector('.search-bar')
@@ -26,13 +33,13 @@ function renderGallery(){
 }
 
 function renderTags(){
-    if(gSearchFor) changeTagSize(gSearchFor)
+    if(gFilterBy) changeTagSize(gFilterBy)
    const tags =  getTagsForDisplay()
    const elSearchList = document.querySelector('.search-tags')
 //    console.log('tags from renderTags', tags);
 
     let strHTMLs =  tags.map(tag =>{
-        return `<li class="tag" style="font-size: ${tag.count * 10}px;" onclick="onSearchTag('${tag.txt}')">${tag.txt}</li>`})
+        return `<li class="tag" style="font-size: ${tag.count * 10}px;" onclick="onSetFilter('${tag.txt}')">${tag.txt}</li>`})
         strHTMLs.push(`<span class="more-tags" onclick="onToggleTags()">${gDisplayTags}...</span>`)
     
 let strHTML = strHTMLs.join('')
@@ -44,12 +51,21 @@ function  onImgClick(imgId){
     renderEditor(imgId)
 }
 
-function onSearchTag(str){
-    str += ''
-       searchTag(str)
-    //    changeTagSize(str)
+function onSetFilter(filterBy){
+    filterBy += ''
+       setFilter(filterBy)
        renderGallery()
        renderTags()
+
+       const queryStringParams = `?filter=${gFilterBy}`;
+  const newUrl =
+    window.location.protocol +
+    "//" +
+    window.location.host +
+    window.location.pathname +
+    queryStringParams;
+  window.history.pushState({ path: newUrl }, "", newUrl);
+
 }
 
 function onToggleTags(){

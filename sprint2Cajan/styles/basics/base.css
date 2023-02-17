@@ -29,3 +29,7 @@ small{
 button:hover{
 cursor: pointer;
 }
+
+.menu-btn{
+    display: none;
+}

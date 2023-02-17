@@ -1,6 +1,6 @@
 .main-header{
+  display: grid;
   grid-auto-flow: column;
- 
     background-color: var(--clr1);
     align-items: center;
     box-shadow: inset 0px -6px 0 var(--clr6)

@@ -127,8 +127,10 @@ function removeLine(){
    if(!gMeme.lines.length) addLine()
 }
 function isOnTxt(x,y){
+   console.log(x,y);
    gMeme.lines.forEach((line, idx) =>{
       let txtWidth =  measureTxt(line.txt)
+      console.log('txtWidth', txtWidth);
     if(  line.x <= x && 
       txtWidth+line.x >= x &&
       line.y-line.size <= y &&
@@ -141,9 +143,7 @@ function isOnTxt(x,y){
    //  , y-size, txtWidth*1.05, size*2
    // && line.y-line.size/2 < y && y+ line.size*2 > y 
 })
-
 }
-
 
 function moveTxt(x,y, action){
    gMeme.lines.forEach(line =>{
@@ -157,13 +157,6 @@ function moveTxt(x,y, action){
 function save(){
    _saveMemeToStorage(gMeme)
 }
-
-
-
-function setCustomImg(){
-
-}
-
 
 function _saveMemeToStorage(val){
    saveToStorage(MEMES_STORAGE_KEY , val)

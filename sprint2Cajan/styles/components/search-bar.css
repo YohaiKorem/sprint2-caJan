@@ -9,28 +9,18 @@ input[name='tags-search-input']{
     background-image: url('/ICONS/search-icon.png');
     background-size: 1em;
     background-repeat: no-repeat;
-    background-position: 95% 90%;
+    background-position: 95% 5%;
     text-indent: 20px;
     font-size: 3em;
     border: 0px;
     outline: none;
     max-width: 100%;
-    max-height: 60%;
+    /* max-height: 60%; */
 }
 
 input[name='tags-search-input']:focus{
     background-image:none;
 }
-
-.search-icon{
-
-    position: relative;
-    right: -32em;
-    top: -3.75em;
-    opacity: 0.6;
-    grid-column: 1;
-}
-
 
 .search-tags{
     /* display: grid; */

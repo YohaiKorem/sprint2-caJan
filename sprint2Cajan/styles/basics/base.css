@@ -4,6 +4,7 @@
 
 html{
     font-family: montserrat-regular;
+    scroll-behavior: smooth;
 }
 body{
     font-size: 1rem;

@@ -34,19 +34,13 @@ function init(){
 
 function drawCanvas(userImg) {
 if(!userImg) userImg = gCurrImg
-
 let url = ''
 url += userImg.url
-
   const img = new Image()
-   
     img.src = url
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height) 
-        
-
         gMeme.lines.forEach((line, idx) => drawText(line, idx))
-        
     }
 }
 

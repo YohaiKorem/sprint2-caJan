@@ -5,6 +5,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'canvas btns';
     column-gap: 80px;
+    background-color: var(--clr4);
 }
 
 .editor-btns-container{

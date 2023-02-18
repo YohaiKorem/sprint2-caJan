@@ -1,26 +1,19 @@
 .search-bar{
     position: relative;
-    grid-column: 2;
+    display: grid;
 padding: 2em 0 2em;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-justify-content: space-between;
 }
 
 input[name='tags-search-input']{
     background-image: url('/ICONS/search-icon.png');
     background-size: 1em;
     background-repeat: no-repeat;
-    background-position: 95% 5%;
-    text-indent: 20px;
-    font-size: 3em;
+   
     border: 0px;
     outline: none;
     max-width: 100%;
     grid-column: 1;
-    /* position: absolute; */
     align-self: center;
-    /* max-height: 60%; */
 border-bottom: 2px solid black;
 }
 
@@ -30,12 +23,8 @@ input[name='tags-search-input']:focus{
 
 .search-tags{
     /* display: grid; */
-    grid-column: 3;
-    grid-row: 1/-1;
     grid-auto-flow: column;
 justify-content: space-between;
-align-items: center;
-justify-items: center;
     color: var(--clr3);
 }
 
@@ -55,7 +44,5 @@ cursor: pointer;
    width: 60px;
    height: 60px;
    border-radius: 30%;
-   grid-column: 2;
-   grid-row: 1;
 }
 

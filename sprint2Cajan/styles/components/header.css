@@ -1,5 +1,4 @@
 .main-header{
-  display: grid;
   grid-auto-flow: column;
     background-color: var(--clr1);
     align-items: center;
@@ -12,22 +11,19 @@
 /* .main-header .main-nav{
 justify-self: end;
 } */
-.main-nav{
+/* .main-nav{
   display: flex;
   min-width: 200px;
   margin: 2em 0 2em;
   justify-content: space-between;
-}
+} */
 
 .clean-list{
   align-items: center;
 }
 
-.main-nav li{
-  margin-inline-start: 20px;
-}
+
 .main-header .main-nav a {
-  
   font-size:2.25rem ;
    color: #ffffff; ;
 }

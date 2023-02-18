@@ -2,6 +2,35 @@
 let gCurrImg
 let gMeme
 const MEMES_STORAGE_KEY = 'memesDB'
+let gAllEmojiCharacters 
+const EMOJI_PAGE_SIZE = 8
+let gEMojisPageIdx = 0
+
+
+fetch('https://emoji-api.com/emojis?access_key=38fb8f8378ed75a2a00afee212f440bd1d4d4a3e')
+.then(res => res.json())
+.then(data => loadEmoji(data))
+
+function changeEmojiPageIdx(changeIdxBy){
+gEMojisPageIdx += changeIdxBy
+if(gEMojisPageIdx <= 0) return
+}
+
+
+
+
+function getEmojisForDisplay(){
+   let emojis = gAllEmojiCharacters
+   let startIdx = gEMojisPageIdx * EMOJI_PAGE_SIZE
+   return emojis.slice(startIdx, startIdx + EMOJI_PAGE_SIZE) 
+ }
+ 
+
+function loadEmoji(data){
+   gAllEmojiCharacters = data.map(emoji =>{
+  return emoji.character
+ })
+ }
 
 
 function setCurrImg(imgId){

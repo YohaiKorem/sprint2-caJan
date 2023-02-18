@@ -121,13 +121,13 @@ function changeTagSize(str){
 
 function toggleTags(){
     let tagsLength = getTagsMap().length
-    TAGS_PAGE_SIZE += 5
-    if(TAGS_PAGE_SIZE >= tagsLength){
+    TAGS_PAGE_SIZE += 3
+    gDisplayTags = 'less' 
+    if(TAGS_PAGE_SIZE > tagsLength && gDisplayTags === 'less'){
         TAGS_PAGE_SIZE = getTagsPageSize()
-         gDisplayTags = 'more' 
-         return
+        return
     } 
-    gDisplayTags = 'less'
+    gDisplayTags = 'more'
 }
 
 function getGDisplay(){

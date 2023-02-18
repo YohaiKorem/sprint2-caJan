@@ -4,6 +4,32 @@ let gCtx
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
+function onNextEmojiPage(ev){
+  ev.stopPropagation()
+  changeEmojiPageIdx(1)
+  renderEmojiPicker()
+}
+
+function onPrevEmojiPage(ev){
+  ev.stopPropagation()
+
+  changeEmojiPageIdx(-1)
+  renderEmojiPicker()
+}
+
+
+function renderEmojiPicker(){
+  let emojis = getEmojisForDisplay()
+ let strHTMLs = emojis.map(emoji =>{
+    return `<li class="emoji" onclick="onSetTxt('${emoji}')">${emoji}</li>`
+  });
+  strHTMLs.unshift('<span class="left-arrow" onclick="onPrevEmojiPage(event)">&#8592</span>');
+  strHTMLs.push('<span class="right-arrow" onclick="onNextEmojiPage(event)">&#8594</span>')
+const elEmojiContainer = document.querySelector('.emoji-container')
+elEmojiContainer.innerHTML = strHTMLs.join('')
+}
+
+
 function onSetCurrImg(imgId){
     setCurrImg(imgId)
 }
@@ -18,6 +44,7 @@ function renderEditor(imgId){
     elEditor.style.display = 'grid'
     elGalleryContainer.style.display = 'none'
     onSetCurrImg(imgId)
+    renderEmojiPicker()
     init()
 }
 

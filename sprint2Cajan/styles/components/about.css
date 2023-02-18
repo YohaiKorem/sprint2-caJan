@@ -1,15 +1,16 @@
 .about{
+    background-color: #fff;
     grid-column: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
-    margin-block: 4em;
+    /* margin-block: 4em; */
     align-items: center;
 }
 
 .about-img{
     place-self: center;
-    width: 80%;
+    width: 60%;
     border-radius: 50%;
     grid-column: 1;
     grid-row: 1/-1;
@@ -18,6 +19,9 @@
 .about-heading{
     grid-column: 2;
     grid-row: 1;
+    color: var(--clr1);
+    font-weight: 900;
+    font-size: 1.375rem;
 }
 .about-p{
     grid-column: 2;

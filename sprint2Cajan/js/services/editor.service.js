@@ -8,40 +8,39 @@ function setCurrImg(imgId){
    const img = getImgById(imgId)
    gCurrImg = img
    if(gMeme)  return
-   
    setMeme(imgId)
 }
 
 function setMeme(imgId){
    if(gMeme)  return
    (gFlex) ? gMeme = getRandomMeme(imgId) : gMeme = _createMeme(imgId)
+   console.log(gMeme);
 }
 function newMeme(){
-
    gMeme = null
    gCurrImg = null
 }
 
 
 function getRandomMeme(id){
-
+let numOfLines = getRandomIntInclusive(1,2)
    return {
       selectedImgId:id,
       selectedLineIdx: 0,
-      lines:[getRandomLine()]
+      lines: (numOfLines === 1) ? [getRandomLine(150)] : [getRandomLine(150), getRandomLine(300)]
 
 }
 }
-function getRandomLine(){
+function getRandomLine(y){
    return {
-      txt:makeRandomMemeLines(1),
+      txt:makeRandomMemeLines(),
       size: getRandomIntInclusive(20,50),
       align: 'left',
-      strokeColor: 'black',
-      fillColor: 'white',
-      font:'impact',
+      strokeColor: getRandomColor(),
+      fillColor: getRandomColor(),
+      font:getRandomFont(),
       x: 200,
-      y: 150,
+      y,
       isDrag: false
    }
 }

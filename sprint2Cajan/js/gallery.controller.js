@@ -16,11 +16,13 @@ function renderFilterByQueryStringParams() {
 
 
 function renderGallery(){
+  gMeme = null
      gFlex = false
     const elGalleryContainer = document.querySelector('.gallery-container')
     const elEditor = document.querySelector('.editor-container')
   const elSearchBar =  document.querySelector('.search-bar')
   const elAboutSection = document.querySelector('.about')
+
     elAboutSection.style.display = 'grid'
     elGalleryContainer.style.display = 'grid'
     elEditor.style.display = 'none'
@@ -79,6 +81,8 @@ function openMenu(){
     const elMainNav = document.querySelector('.main-nav')
     const elHiddenLogo = document.querySelector('.hidden-logo')
     const elBackdrop = document.querySelector('.backdrop')
+    const elBody = document.querySelector('body')
+    elBody.classList.add('backdrop-open')
     elMainNav.classList.add('open')
     elHiddenLogo.classList.add('open')
     elBackdrop.classList.add('open')
@@ -88,9 +92,11 @@ function closeMenu(){
     const elMainNav = document.querySelector('.main-nav')
     const elHiddenLogo = document.querySelector('.hidden-logo')
     const elBackdrop = document.querySelector('.backdrop')
+    const elBody = document.querySelector('body')
     elMainNav.classList.remove('open')
     elHiddenLogo.classList.remove('open')
     elBackdrop.classList.remove('open')
+    elBody.classList.remove('backdrop-open')
 }
 
 

@@ -4,7 +4,7 @@ const IMGS_STORAGE_KEY = 'imgsDB'
 let gFilterBy
 let gImgs = []
 let gTags
-let TAGS_PAGE_SIZE = 5
+let TAGS_PAGE_SIZE = getTagsPageSize()
 let gTagsPageIdx = 0
 let gDisplayTags = 'more'
 
@@ -12,6 +12,13 @@ let gDisplayTags = 'more'
 
 // let gTags = getAllTags()
 _createImgs()
+
+
+function getTagsPageSize(){
+    let screenSize 
+    (window.innerWidth >= 940) ? screenSize = 5 : screenSize = 3;
+    return screenSize
+}
 
 
 function getImgsForDisplay(){
@@ -113,9 +120,14 @@ function changeTagSize(str){
 }
 
 function toggleTags(){
-    (gDisplayTags === 'more') ? gDisplayTags = 'less' : gDisplayTags = 'more'
+    let tagsLength = getTagsMap().length
     TAGS_PAGE_SIZE += 5
-    if(TAGS_PAGE_SIZE >= 15) TAGS_PAGE_SIZE = 5
+    if(TAGS_PAGE_SIZE >= tagsLength){
+        TAGS_PAGE_SIZE = getTagsPageSize()
+         gDisplayTags = 'more' 
+         return
+    } 
+    gDisplayTags = 'less'
 }
 
 function getGDisplay(){

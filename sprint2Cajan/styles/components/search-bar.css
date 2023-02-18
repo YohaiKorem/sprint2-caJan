@@ -21,6 +21,7 @@ input[name='tags-search-input']{
     /* position: absolute; */
     align-self: center;
     /* max-height: 60%; */
+border-bottom: 2px solid black;
 }
 
 input[name='tags-search-input']:focus{

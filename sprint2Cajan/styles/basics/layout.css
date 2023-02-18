@@ -1,7 +1,5 @@
 .main-layout{
     display: grid;
-    grid-template-columns: 50px 1fr 50px;
- 
 }
 
 .main-layout > .full {

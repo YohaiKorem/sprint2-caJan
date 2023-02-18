@@ -107,6 +107,7 @@ cursor: pointer;
 
 .emoji{
     font-size: 3em;
+    cursor: pointer;
 }
 
 .share-btn{

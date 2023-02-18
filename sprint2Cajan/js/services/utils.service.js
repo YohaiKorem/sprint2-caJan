@@ -9,6 +9,15 @@ function makeId(length = 6) {
     return txt
 }
 
+function getEmojiUnicodeArray(){
+    let emojis = []
+    for(let i =128512; i <128580; i++){
+let emoji = `&#${i}`
+emojis.push(emoji)
+    }
+return emojis
+}
+
 
 function makeRandomMemeLines(){
     const lines = ['i hate it when', 'people ask me', 'what\'s cooking good looking', 'are you just happy to see me?', 

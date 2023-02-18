@@ -2,7 +2,7 @@
 let gCurrImg
 let gMeme
 const MEMES_STORAGE_KEY = 'memesDB'
-let gAllEmojiCharacters 
+let gEmojis = getEmojiUnicodeArray()
 const EMOJI_PAGE_SIZE = 8
 let gEMojisPageIdx = 0
 
@@ -11,22 +11,27 @@ let gEMojisPageIdx = 0
 // .then(res => res.json())
 // .then(data => loadEmoji(data))
 
-// function changeEmojiPageIdx(changeIdxBy){
-// gEMojisPageIdx += changeIdxBy
-// if(gEMojisPageIdx <= 0) return
-// }
+function changeEmojiPageIdx(changeIdxBy){
+gEMojisPageIdx += changeIdxBy
+console.log(gEMojisPageIdx);
+if(gEMojisPageIdx < 0) gEMojisPageIdx = gEmojis.length/EMOJI_PAGE_SIZE-1
+else if(gEMojisPageIdx > 8) gEMojisPageIdx = 0
+}
 
-// function getEmojisForDisplay(){
-//    let emojis = gAllEmojiCharacters
-//    let startIdx = gEMojisPageIdx * EMOJI_PAGE_SIZE
-//    return emojis.slice(startIdx, startIdx + EMOJI_PAGE_SIZE) 
-//  }
+function getEmojisForDisplay(){
+   let emojis = gEmojis
+   let startIdx = gEMojisPageIdx * EMOJI_PAGE_SIZE
+   return emojis.slice(startIdx, startIdx + EMOJI_PAGE_SIZE) 
+ }
  
 // function loadEmoji(data){
-//    gAllEmojiCharacters = data.map(emoji =>{
+//    gEmojis = data.map(emoji =>{
 //   return emoji.character
 //  })
 //  }
+
+
+
 
 function setCurrImg(imgId){
    const img = getImgById(imgId)

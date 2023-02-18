@@ -60,6 +60,11 @@ let strHTML = strHTMLs.join('')
 }
 
 
+function onClearFilter(){
+  gFilterBy = null
+  renderGallery()
+}
+
 function  onImgClick(imgId){
     renderEditor(imgId)
 }

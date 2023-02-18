@@ -16,22 +16,17 @@ gEMojisPageIdx += changeIdxBy
 if(gEMojisPageIdx <= 0) return
 }
 
-
-
-
 function getEmojisForDisplay(){
    let emojis = gAllEmojiCharacters
    let startIdx = gEMojisPageIdx * EMOJI_PAGE_SIZE
    return emojis.slice(startIdx, startIdx + EMOJI_PAGE_SIZE) 
  }
  
-
 function loadEmoji(data){
    gAllEmojiCharacters = data.map(emoji =>{
   return emoji.character
  })
  }
-
 
 function setCurrImg(imgId){
    const img = getImgById(imgId)
@@ -43,13 +38,11 @@ function setCurrImg(imgId){
 function setMeme(imgId){
    if(gMeme)  return
    (gFlex) ? gMeme = getRandomMeme(imgId) : gMeme = _createMeme(imgId)
-   console.log(gMeme);
 }
 function newMeme(){
    gMeme = null
    gCurrImg = null
 }
-
 
 function getRandomMeme(id){
 let numOfLines = getRandomIntInclusive(1,2)
@@ -57,9 +50,9 @@ let numOfLines = getRandomIntInclusive(1,2)
       selectedImgId:id,
       selectedLineIdx: 0,
       lines: (numOfLines === 1) ? [getRandomLine(150)] : [getRandomLine(150), getRandomLine(300)]
+   }
+}
 
-}
-}
 function getRandomLine(y){
    return {
       txt:makeRandomMemeLines(),
@@ -74,8 +67,6 @@ function getRandomLine(y){
    }
 }
 
-
-
 function _createMeme(id){
   return {
       selectedImgId:id,
@@ -83,7 +74,7 @@ function _createMeme(id){
       lines:[
          {
             txt:'coding academy be like',
-            size: 20,
+            size: 40,
             align: 'left',
             strokeColor: 'black',
             fillColor: 'white',
@@ -93,7 +84,7 @@ function _createMeme(id){
             isDrag: false
          },
         { txt:'code a meme generator dude',
-         size: 20,
+         size: 40,
          align: 'left',
          strokeColor: 'black',
          fillColor: 'white',

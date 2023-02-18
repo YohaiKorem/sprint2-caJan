@@ -21,14 +21,14 @@ gap: 10px;
 
 .editor-btns-container button{
     border-radius: 20%;
-    width: 60px;
-    height: 60px;
+   
 }
+
 
 input[name='meme-line-input']{
     grid-column: 1/-1;
-    width: 100%;
-    
+    width: 90%;
+    font-size: 250%;
 }
 
 input[name='fill-color'],
@@ -75,6 +75,7 @@ cursor: pointer;
 }
 
 .choose-font{
+    font-size: 250%;
     grid-column: 1/4;
     grid-row: 4;
 }

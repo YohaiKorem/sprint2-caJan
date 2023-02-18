@@ -98,6 +98,7 @@ grid-area: saved;
     width: 50px;
     background-color: inherit;
     border: 0;
+    margin-inline-end: 20px;
 }
 
 
@@ -163,6 +164,12 @@ grid-template-rows: 1fr;
     /* row-gap: 40px; */
 align-items: center;
 padding-block-start: 10px;
+}
+
+
+input[name='meme-line-input']{
+    align-self: center;
+    justify-self: center;
 }
 
 .canvas-container{
@@ -292,6 +299,21 @@ input[name='tags-search-input']{
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'canvas btns';
     column-gap: 80px;
+}
+
+.editor-btns-container button{
+
+    width: 100px;
+    height: 100px;
+}
+
+input[name='meme-line-input']{
+    grid-column: 1/-1;
+    width: 90%;
+height: 100px;
+}
+.choose-font{
+    height: 100px;
 }
 
 /* ABOUT */

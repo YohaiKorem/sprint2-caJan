@@ -52,8 +52,8 @@ function init(){
     gCanvas = document.querySelector('#canvas')
     gCtx = gCanvas.getContext('2d')
     const elCanvasContainer = document.querySelector('.canvas-container')
-    gCanvas.width = elCanvasContainer.offsetWidth - 100
-    
+    if(window.innerWidth >= 940) gCanvas.width = elCanvasContainer.clientWidth
+   else gCanvas.width = elCanvasContainer.offsetWidth - 100
     gCanvas.height = gCanvas.width 
     drawCanvas()
     addListeners()

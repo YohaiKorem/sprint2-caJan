@@ -1,10 +1,7 @@
 .editor-container{
-    padding-block-start: 10px;
-    grid-column: 2;
+  
+    /* grid-column: 2; */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'canvas btns';
-    column-gap: 80px;
     background-color: var(--clr4);
 }
 
@@ -31,6 +28,7 @@ gap: 10px;
 input[name='meme-line-input']{
     grid-column: 1/-1;
     width: 100%;
+    
 }
 
 input[name='fill-color'],

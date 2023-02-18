@@ -21,12 +21,16 @@ input[name='tags-search-input']:focus{
     background-image:none;
 }
 
-.search-tags{
+.search-tags {
     /* display: grid; */
     grid-auto-flow: column;
 justify-content: space-between;
     color: var(--clr3);
 }
+
+/* .search-tags > li{
+    display: block;
+} */
 
 .more-tags{
 text-decoration: underline;

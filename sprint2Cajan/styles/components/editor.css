@@ -110,28 +110,41 @@ cursor: pointer;
 }
 
 .share-btn{
+   
     grid-row: 6;
     grid-column: 2;
 }
 .save-btn{
-    grid-row: 6;
-    grid-column: 3;
-}
-.custom-img-btn{
+   
     grid-row: 6;
     grid-column: 4;
+}
+.custom-img-btn{
+    grid-row: 7;
+    grid-column: 3;
+padding-top: 25px;
+height: min-content;
 }
 
 button.share-btn,
 button.save-btn,
 button.custom-img-btn{
-    width: 100px;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 100px;
+    max-height: 100px;
+
     background-color: var(--clr1);
     place-self: center;
 }
 
 
 input.file-input{
-    width: 100%;
-    height: 100%;
+    width: 130%;
+    height: 150%;
+    position: relative;
+    top: -60px;
+    left: -10px;
+    opacity: 0;
+    cursor: pointer;
 }

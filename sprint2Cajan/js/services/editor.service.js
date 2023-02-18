@@ -7,26 +7,26 @@ const EMOJI_PAGE_SIZE = 8
 let gEMojisPageIdx = 0
 
 
-fetch('https://emoji-api.com/emojis?access_key=38fb8f8378ed75a2a00afee212f440bd1d4d4a3e')
-.then(res => res.json())
-.then(data => loadEmoji(data))
+// fetch('https://emoji-api.com/emojis?access_key=38fb8f8378ed75a2a00afee212f440bd1d4d4a3e')
+// .then(res => res.json())
+// .then(data => loadEmoji(data))
 
-function changeEmojiPageIdx(changeIdxBy){
-gEMojisPageIdx += changeIdxBy
-if(gEMojisPageIdx <= 0) return
-}
+// function changeEmojiPageIdx(changeIdxBy){
+// gEMojisPageIdx += changeIdxBy
+// if(gEMojisPageIdx <= 0) return
+// }
 
-function getEmojisForDisplay(){
-   let emojis = gAllEmojiCharacters
-   let startIdx = gEMojisPageIdx * EMOJI_PAGE_SIZE
-   return emojis.slice(startIdx, startIdx + EMOJI_PAGE_SIZE) 
- }
+// function getEmojisForDisplay(){
+//    let emojis = gAllEmojiCharacters
+//    let startIdx = gEMojisPageIdx * EMOJI_PAGE_SIZE
+//    return emojis.slice(startIdx, startIdx + EMOJI_PAGE_SIZE) 
+//  }
  
-function loadEmoji(data){
-   gAllEmojiCharacters = data.map(emoji =>{
-  return emoji.character
- })
- }
+// function loadEmoji(data){
+//    gAllEmojiCharacters = data.map(emoji =>{
+//   return emoji.character
+//  })
+//  }
 
 function setCurrImg(imgId){
    const img = getImgById(imgId)
@@ -79,7 +79,7 @@ function _createMeme(id){
             strokeColor: 'black',
             fillColor: 'white',
             font:'impact',
-            x: 50,
+            x: (gCanvas.width/2 - 200),
             y: 50,
             isDrag: false
          },
@@ -89,8 +89,8 @@ function _createMeme(id){
          strokeColor: 'black',
          fillColor: 'white',
          font:'impact',
-         x: 50,
-         y: 250,
+         x: gCanvas.width/2 - 250,
+         y: gCanvas.height-100,
          isDrag: false}
       ]
    }
@@ -174,7 +174,7 @@ function isOnTxt(x,y){
    // console.log(x,y);
    gMeme.lines.forEach((line, idx) =>{
       let txtWidth =  measureTxt(line.txt)
-      console.log('touched y', y);
+      console.log('touched x', x);
       // console.log(`${idx} size`, line.size);
       console.log(`${idx} line.y`, line.y);
 

@@ -4,30 +4,30 @@ let gCtx
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
-function onNextEmojiPage(ev){
-  ev.stopPropagation()
-  changeEmojiPageIdx(1)
-  renderEmojiPicker()
-}
+// function onNextEmojiPage(ev){
+//   ev.stopPropagation()
+//   changeEmojiPageIdx(1)
+//   renderEmojiPicker()
+// }
 
-function onPrevEmojiPage(ev){
-  ev.stopPropagation()
+// function onPrevEmojiPage(ev){
+//   ev.stopPropagation()
 
-  changeEmojiPageIdx(-1)
-  renderEmojiPicker()
-}
+//   changeEmojiPageIdx(-1)
+//   renderEmojiPicker()
+// }
 
 
-function renderEmojiPicker(){
-  let emojis = getEmojisForDisplay()
- let strHTMLs = emojis.map(emoji =>{
-    return `<li class="emoji" onclick="onSetTxt('${emoji}')">${emoji}</li>`
-  });
-  strHTMLs.unshift('<span class="left-arrow" onclick="onPrevEmojiPage(event)">&#8592</span>');
-  strHTMLs.push('<span class="right-arrow" onclick="onNextEmojiPage(event)">&#8594</span>')
-const elEmojiContainer = document.querySelector('.emoji-container')
-elEmojiContainer.innerHTML = strHTMLs.join('')
-}
+// function renderEmojiPicker(){
+//   let emojis = getEmojisForDisplay()
+//  let strHTMLs = emojis.map(emoji =>{
+//     return `<li class="emoji" onclick="onSetTxt('${emoji}')">${emoji}</li>`
+//   });
+//   strHTMLs.unshift('<span class="left-arrow" onclick="onPrevEmojiPage(event)">&#8592</span>');
+//   strHTMLs.push('<span class="right-arrow" onclick="onNextEmojiPage(event)">&#8594</span>')
+// const elEmojiContainer = document.querySelector('.emoji-container')
+// elEmojiContainer.innerHTML = strHTMLs.join('')
+// }
 
 
 function onSetCurrImg(imgId){
@@ -43,19 +43,23 @@ function renderEditor(imgId){
     elSearchBar.style.display = 'none'
     elEditor.style.display = 'grid'
     elGalleryContainer.style.display = 'none'
-    onSetCurrImg(imgId)
-    renderEmojiPicker()
-    init()
+    
+    // renderEmojiPicker()
+    init(imgId)
 }
 
-function init(){
+function init(imgId){
     gCanvas = document.querySelector('#canvas')
     gCtx = gCanvas.getContext('2d')
     const elCanvasContainer = document.querySelector('.canvas-container')
     if(window.innerWidth >= 940) gCanvas.width = elCanvasContainer.clientWidth
-   else gCanvas.width = elCanvasContainer.offsetWidth - 100
+   else gCanvas.width = elCanvasContainer.offsetWidth 
     gCanvas.height = gCanvas.width 
+    onSetCurrImg(imgId)
     drawCanvas()
+    console.log('gCanvas.width', gCanvas.width);
+    console.log('elCanvasContainer.offsetWidth', elCanvasContainer.offsetWidth);
+    console.log('elCanvasContainer.clientWidth', elCanvasContainer.clientWidth);
     addListeners()
 }
 

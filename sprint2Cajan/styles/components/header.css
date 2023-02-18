@@ -28,3 +28,8 @@ justify-self: end;
    color: #ffffff; ;
 }
 
+select[name='select-lang']{
+  position: absolute;
+  top: 8px;
+  border-radius: 10%;
+}

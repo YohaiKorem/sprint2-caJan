@@ -2,9 +2,19 @@
 let gFlex
 
 function onInit(){
+  renderFilterByQueryStringParams()
     renderTags()
     renderGallery()
 }
+
+function onSetLang(lang) {
+  setLang(lang);
+  if (lang === "he") document.body.classList.add("rtl");
+  else document.body.classList.remove("rtl");
+  onInit()
+  doTrans();
+}
+
 
 function renderFilterByQueryStringParams() {
     const queryStringParams = new URLSearchParams(window.location.search);

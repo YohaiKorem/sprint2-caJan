@@ -80,21 +80,21 @@ function _createMeme(id){
          {
             txt:'coding academy be like',
             size: 40,
-            align: 'left',
+            align: 'center',
             strokeColor: 'black',
             fillColor: 'white',
             font:'impact',
-            x: (gCanvas.width/2 - 200),
+            x: gCanvas.width/2 ,
             y: 50,
             isDrag: false
          },
         { txt:'code a meme generator dude',
          size: 40,
-         align: 'left',
+         align: 'center',
          strokeColor: 'black',
          fillColor: 'white',
          font:'impact',
-         x: gCanvas.width/2 - 250,
+         x: gCanvas.width/2,
          y: gCanvas.height-100,
          isDrag: false}
       ]
@@ -105,7 +105,7 @@ function _createLine(){
    return {
        txt:'',
        size: 20,
-       align: 'left',
+       align: 'center',
        strokeColor: 'black',
        fillColor: 'white',
        font:'impact',

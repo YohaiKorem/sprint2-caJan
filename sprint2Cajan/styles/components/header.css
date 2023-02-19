@@ -33,3 +33,7 @@ select[name='select-lang']{
   top: 8px;
   border-radius: 10%;
 }
+
+.main-header .logo{
+cursor: pointer;
+}

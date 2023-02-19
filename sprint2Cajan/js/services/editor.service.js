@@ -5,11 +5,16 @@ const MEMES_STORAGE_KEY = 'memesDB'
 let gEmojis = getEmojiUnicodeArray()
 const EMOJI_PAGE_SIZE = 8
 let gEMojisPageIdx = 0
-
+let gNextLineY 
 
 // fetch('https://emoji-api.com/emojis?access_key=38fb8f8378ed75a2a00afee212f440bd1d4d4a3e')
 // .then(res => res.json())
 // .then(data => loadEmoji(data))
+
+function getNextLineY(){
+   (!gCanvas) ? gNextLineY = 300 : gNextLineY = gCanvas.height/2
+}
+
 
 function changeEmojiPageIdx(changeIdxBy){
 gEMojisPageIdx += changeIdxBy
@@ -109,8 +114,8 @@ function _createLine(){
        strokeColor: 'black',
        fillColor: 'white',
        font:'impact',
-       x: 200,
-       y: 150,
+       x: gCanvas.width/2,
+       y: gNextLineY,
        isDrag: false
     }
  }
@@ -139,7 +144,9 @@ function selectLine(line, idx){
 
 
 function addLine(){
+   getNextLineY()
    const newLine =_createLine()
+   gNextLineY += 50
    gMeme.lines.push(newLine)
    gMeme.selectedLineIdx = gMeme.lines.indexOf(newLine)
 }
@@ -176,19 +183,13 @@ function removeLine(){
    if(!gMeme.lines.length) addLine()
 }
 function isOnTxt(x,y){
-   // console.log(x,y);
    gMeme.lines.forEach((line, idx) =>{
       let txtWidth =  measureTxt(line.txt)
-      console.log('touched x', x);
-      // console.log(`${idx} size`, line.size);
-      console.log(`${idx} line.y`, line.y);
+      
 
-     if( line.x/2 <= x && 
-      txtWidth+line.x + 30 >= x && line.y<= y &&
-        line.y + line.size*2 >= y ) 
+    if  (line.x + txtWidth > x - txtWidth && x  > line.x && y > line.y - line.size - 10 && line.y +10 > y)
       
       {
-         //  console.log('in Y');
          selectLine(line,idx)
        line.isDrag = true
       }

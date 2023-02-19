@@ -30,18 +30,19 @@
                 <div class="bar"></div>
             </button>
         </section>
-       
     </header>
+
     <section class="search-bar full" >
         <button class="clear-filter" onclick="onClearFilter()">Clear filter</button>
         <button class="flexible-btn" onclick="onFlexible()" data-trans="flexible">I`m flexible</button>
         <input type="text" placeholder="Enter search keyword" data-trans="search-placeholder"  name="tags-search-input" onkeyup="onSetFilter(this.value)">
         <ul class="search-tags flex clean-list" >
-            
         </ul>
     </section>
+
     <main class="gallery-container full">
     </main>
+
 
 <section class="editor-container hidden full">
     <div class="canvas-container flex">
@@ -77,14 +78,12 @@
             <button class="save-btn" onclick="onSave()" data-trans="save">Save</button>
             <button class="custom-img-btn" data-trans="custom-picture">Use custom picture
                 <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
-            
             </button>
         </section>
 </section>
 
 <section class="about full" id="about">
   <div class="about-img-container flex">
-
       <img src="img/yohai/yohai.jpg" class="about-img">
   </div> 
     <h2 class="about-heading" data-trans="my-name">Yohai Korem</h2>
@@ -96,15 +95,12 @@
             <li class="icon-container"><i class="fa-brands fa-github"></i></li>
         </ul>
 </section>
+
 <footer class="main-footer main-layout full">
     <div class="logo"><img src="img/logo/LOGO.png" class="logo-img"></div>
     <small data-trans="all-rights-reserved">all rights reserved 2019</small>
 </footer>
-
 <div class="backdrop" onclick="closeMenu()"></div>
-
-
-
 
     <script src="js/services/utils.service.js"></script>
     <script src="js/services/storage.service.js"></script>

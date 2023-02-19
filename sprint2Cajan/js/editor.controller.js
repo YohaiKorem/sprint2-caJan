@@ -3,7 +3,6 @@ let gCanvas
 let gCtx
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
-
 function onNextEmojiPage(ev){
   ev.stopPropagation()
   changeEmojiPageIdx(1)
@@ -17,7 +16,6 @@ function onPrevEmojiPage(ev){
   renderEmojiPicker()
 }
 
-
 function renderEmojiPicker(){
   let emojis = getEmojisForDisplay()
  let strHTMLs = emojis.map(emoji =>{
@@ -28,7 +26,6 @@ function renderEmojiPicker(){
 const elEmojiContainer = document.querySelector('.emoji-container')
 elEmojiContainer.innerHTML = strHTMLs.join('')
 }
-
 
 function onSetCurrImg(imgId){
     setCurrImg(imgId)
@@ -43,7 +40,6 @@ function renderEditor(imgId){
     elSearchBar.style.display = 'none'
     elEditor.style.display = 'grid'
     elGalleryContainer.style.display = 'none'
-    
     renderEmojiPicker()
     init(imgId)
 }

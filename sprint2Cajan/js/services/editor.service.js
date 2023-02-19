@@ -127,7 +127,6 @@ function  setTxt(txt){
    
 }
 
-
 function getImgById(imgId){
    return gImgs.find(img => img.id === imgId)
 }
@@ -142,7 +141,6 @@ function selectLine(line, idx){
    gMeme.selectedLineIdx = idx
 }
 
-
 function addLine(){
    getNextLineY()
    const newLine =_createLine()
@@ -151,52 +149,43 @@ function addLine(){
    gMeme.selectedLineIdx = gMeme.lines.indexOf(newLine)
 }
 
-
-
 function fontGrow(){
    gMeme.lines[gMeme.selectedLineIdx].size++
 }
 
 function fontShrink(){
    gMeme.lines[gMeme.selectedLineIdx].size--
-
 }
+
 function setTxtAlign(align){
    gMeme.lines[gMeme.selectedLineIdx].align = align
 }
+
 function setFont(font){
    gMeme.lines[gMeme.selectedLineIdx].font = font
-
 }
+
 function changeStrokeColor(strokeColor){
    gMeme.lines[gMeme.selectedLineIdx].strokeColor = strokeColor
-   
 }
 
 function  changeFillColor(fillColor){
    gMeme.lines[gMeme.selectedLineIdx].fillColor = fillColor
-
 }
+
 function removeLine(){
    const lineIdx =  gMeme.selectedLineIdx
    gMeme.lines.splice(lineIdx, 1)
    if(!gMeme.lines.length) addLine()
 }
+
 function isOnTxt(x,y){
    gMeme.lines.forEach((line, idx) =>{
       let txtWidth =  measureTxt(line.txt)
-      
-
-    if  (line.x + txtWidth > x - txtWidth && x  > line.x && y > line.y - line.size - 10 && line.y +10 > y)
-      
-      {
+    if  (line.x + txtWidth > x - txtWidth && x  > line.x && y > line.y - line.size - 10 && line.y +10 > y)  {
          selectLine(line,idx)
        line.isDrag = true
       }
-
-      //  gMeme.selectedLineIdx = gMeme.lines.indexOf(line)
-   //  , y-size, txtWidth*1.05, size*2
-   // && line.y-line.size/2 < y && y+ line.size*2 > y 
 })
 }
 
@@ -216,6 +205,7 @@ function save(){
 function _saveMemeToStorage(val){
    saveToStorage(MEMES_STORAGE_KEY , val)
 }
+
 function loadSavedMeme(){
    gMeme = loadFromStorage(MEMES_STORAGE_KEY)
 }

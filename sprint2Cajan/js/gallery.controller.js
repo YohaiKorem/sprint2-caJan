@@ -15,15 +15,12 @@ function onSetLang(lang) {
   doTrans();
 }
 
-
 function renderFilterByQueryStringParams() {
     const queryStringParams = new URLSearchParams(window.location.search);
     const filterBy = queryStringParams.get("filter");
     if (!filterBy) return;
     setFilter(filterBy);
   }
-
-
 
 function renderGallery(){
   gMeme = null
@@ -32,7 +29,6 @@ function renderGallery(){
     const elEditor = document.querySelector('.editor-container')
   const elSearchBar =  document.querySelector('.search-bar')
   const elAboutSection = document.querySelector('.about')
-
     elAboutSection.style.display = 'grid'
     elGalleryContainer.style.display = 'grid'
     elEditor.style.display = 'none'
@@ -49,16 +45,12 @@ function renderTags(){
     if(gFilterBy) changeTagSize(gFilterBy)
    const tags =  getTagsForDisplay()
    const elSearchList = document.querySelector('.search-tags')
-//    console.log('tags from renderTags', tags);
-
     let strHTMLs =  tags.map(tag =>{
         return `<li class="tag" style="font-size: ${tag.count * 10}px;" onclick="onSetFilter('${tag.txt}')">${tag.txt}</li>`})
         strHTMLs.push(`<span class="more-tags" onclick="onToggleTags()">${gDisplayTags}...</span>`)
-    
 let strHTML = strHTMLs.join('')
     elSearchList.innerHTML = strHTML
 }
-
 
 function onClearFilter(){
   gFilterBy = null
@@ -74,7 +66,6 @@ function onSetFilter(filterBy){
        setFilter(filterBy)
        renderGallery()
        renderTags()
-
        const queryStringParams = `?filter=${gFilterBy}`;
   const newUrl =
     window.location.protocol +
@@ -83,14 +74,12 @@ function onSetFilter(filterBy){
     window.location.pathname +
     queryStringParams;
   window.history.pushState({ path: newUrl }, "", newUrl);
-
 }
 
 function onToggleTags(){
     toggleTags()
 renderTags()
 }
-
 
 function openMenu(){
     const elMainNav = document.querySelector('.main-nav')
